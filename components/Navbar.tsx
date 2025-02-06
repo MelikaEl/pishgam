@@ -21,11 +21,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="text-2xl font-bold">لوگو</div>
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between ">
+        {/* <div className="flex-1 text-2xl font-bold">لوگو</div> */}
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6 mx-auto">
           {menuItems.map((item) => (
             <a
               key={item.name}
@@ -38,8 +38,9 @@ const Navbar = () => {
       
         </div>
 
+
         {/* Mobile Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden ml-auto">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -63,7 +64,8 @@ const Navbar = () => {
             </SheetContent>
           </Sheet>
         </div>
-      </div>
+        </div>
+      
     </nav>
   );
 };
