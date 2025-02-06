@@ -13,9 +13,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "خانه", href: "#home" },
+    { name: "صفحه اصلی", href: "#home" },
     { name: "درباره ما", href: "#about" },
-    { name: "خدمات", href: "#services" },
+    { name: "فعالیت ها", href: "#services" },
+    { name: "تماس با ما", href: "#footer" }
   ];
 
   return (
@@ -34,7 +35,7 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <Button>تماس با ما</Button>
+      
         </div>
 
         {/* Mobile Menu */}
