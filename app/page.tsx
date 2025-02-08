@@ -1,20 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
-import Image from 'next/image';
-import nbn from '@/public/images/Frame.png';
-
+import Image from "next/image";
+import nbn from "@/public/images/Frame.png";
+import { Star, Clock, Shield } from "lucide-react";
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-between relative bg-gradient-to-b from-primary/10 to-background pt-16">
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-between relative bg-gradient-to-b from-primary/10 to-background pt-16"
+      >
         {/* Right Logo */}
         <div className="flex-1 h-screen flex items-center justify-center p-8">
           <Image
             src="/images/Frame.png" // Replace with your left logo path
             alt="Left Logo"
             className="max-w-full max-h-full object-contain"
-            width={504} 
+            width={504}
             height={455}
           />
         </div>
@@ -25,34 +28,128 @@ export default function Home() {
             src="/images/Frame1.png" // Replace with your right logo path
             alt="Right Logo"
             className="max-w-full max-h-full object-contain"
-            width={768} 
+            width={768}
             height={778}
-            
           />
         </div>
 
-        <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        {/* <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <ArrowDown className="h-6 w-6" />
-        </a>
+        </a> */}
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen flex items-center bg-muted py-20">
+      <section
+        id="about"
+        className="min-h-screen flex items-center bg-muted py-20"
+      >
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
-                alt="About Us"
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">درباره ما</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+          <div className="flex flex-col gap-12">
+            {/* Part 1 */}
+            <div className=" p-8 ">
+              <h3 className="text-2xl font-semibold mb-4">درباره ما</h3>
+              <p className="text-lg ">
+                هلدینگ پیشگام پرتو گشت ویرا با هدف ایجاد تحول در صنایع مختلف از
+                طریق نوآوری و فناوری تاسیس شده است. ما در سه حوزه گردشگری، توسعه
+                نرم افزار و صنعت برق فعالیت میکنیم و تلاش داریم با استفاده از
+                فناوری های نوین، راهکارهای هوشمند و داده محور ، تجربه ای کارآمد
+                تر، هوشمند تر و پایدار تر را برای کسب و کارها و کاربران ایجاد
+                کنیم
               </p>
-              <Button variant="outline">بیشتر بدانید</Button>
+            </div>
+
+            {/* Part 2 */}
+            <div className=" p-8 ">
+              <h3 className="text-2xl font-semibold mb-4">ماموریت ما</h3>
+              <p className="text-lg ">
+                ما به دنبال ارائه راهکارهای هوشمند و خلاقانه در بخش های
+                گردشگری،فناوری و انرژی هستیم تا با بهسته سازی فرآیندها،کاهش
+                هزینه ها و افزایش بهره وری،تاثیری مثبت و ماندگار بر صنایع مختلف
+                داشته باشیم
+              </p>
+            </div>
+
+            {/* Part 3 */}
+            <div className="p-8">
+              <h3 className="text-2xl font-semibold mb-8">چرا ما؟</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Card 1 */}
+                <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
+                  <div className="bg-white p-2 rounded-lg">
+                  <Image
+                      src="/images/lamp.png" 
+                      alt="rocket icon"
+                      className="max-w-full max-h-full object-contain"
+                      width={109}
+                      height={109}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2">
+                      نوآوری
+                    </h4>
+                    <p className="text-gray-600">
+                    استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
+                      راهکارهای
+                    </p>
+                  </div>
+                </div>
+
+
+                {/* 
+                <div>
+                    <h4 className="text-xl font-bold mb-2">نوآوری</h4>
+                    <p>
+                      استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
+                      ایجاد راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
+                    </p>
+                  </div>
+                */}
+
+                {/* Card 2 */}
+                <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
+                  <div className="bg-white p-2 rounded-lg">
+                  <Image
+                      src="/images/rocket.png" 
+                      alt="rocket icon"
+                      className="max-w-full max-h-full object-contain"
+                      width={109}
+                      height={109}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2">
+                      بهینه سازی و بهره وری
+                    </h4>
+                    <p className="text-gray-600">
+                      کاهش هزینه ها،افزایش سرعت و ارائه راهکارهای مقرون به صرفه
+                      و کارآمد
+                    </p>
+                  </div>
+                </div>
+
+                {/* Card 3 */}
+                <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
+                  <div className="bg-white p-2 rounded-lg">
+                  <Image
+                      src="/images/link.png" 
+                      alt="link icon"
+                      className="max-w-full max-h-full object-contain"
+                      width={109}
+                      height={109}
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2">
+                      یکپارچگی و اتوماسیون
+                    </h4>
+                    <p className="text-gray-600">
+                      توسعه پلتفرم های دیجیتال و سیستم های مدیریت هوشمند برای
+                      سهولت در استفاده
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,7 +158,9 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">خدمات ما</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            خدمات ما
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-card p-6 rounded-lg shadow-lg">
@@ -74,9 +173,12 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">خدمت {item}</h3>
                 <p className="text-muted-foreground mb-4">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                  استفاده از طراحان گرافیک است.
                 </p>
-                <Button variant="secondary" className="w-full">جزئیات بیشتر</Button>
+                <Button variant="secondary" className="w-full">
+                  جزئیات بیشتر
+                </Button>
               </div>
             ))}
           </div>
