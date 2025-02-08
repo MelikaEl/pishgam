@@ -6,7 +6,7 @@ export default function Footer() {
     <div id="footer" className="container mx-auto px-4 py-12 font-sans" dir="rtl">
       <h2 className="text-3xl font-bold mb-6">تماس با ما</h2>
 
-      <p className="text-gray-600 mb-8 leading-relaxed">
+      <p className=" mb-8 leading-relaxed">
         اگر می‌خواهید با ما در ارتباط باشید، تیم ما آماده پاسخگویی به سوالات،
         پیشنهادات و همکاری‌های جدید است. می‌توانید از طریق تماس تلفنی یا ایمیل
         با ما ارتباط بگیرید.
@@ -15,11 +15,17 @@ export default function Footer() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div className="space-y-6">
           <div className="flex items-center gap-4">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-100">
-              <Mail className="w-6 h-6 text-purple-600" />
+            <div className="flex items-center justify-center w-12 h-12 rounded-full ">
+            <Image
+              src="/images/sms-tracking.png"
+              alt="email icon"
+              className="max-w-full max-h-full object-contain"
+              width={48}
+              height={48}
+            />
             </div>
             <div>
-              <p className="text-sm text-gray-500 mb-1">ایمیل</p>
+              <p className="text-sm  mb-1">ایمیل</p>
               <a
                 href="mailto:info@atripa.com"
                 className="text-gray-900 hover:text-purple-600 transition-colors"
@@ -30,11 +36,17 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-100">
-              <Phone className="w-6 h-6 text-purple-600" />
+            <div className="flex items-center justify-center w-12 h-12 rounded-full ">
+            <Image
+              src="/images/call-calling.png"
+              alt="mobile icon"
+              className="max-w-full max-h-full object-contain"
+              width={48}
+              height={48}
+            />
             </div>
             <div>
-              <p className="text-sm text-gray-500 mb-1">تلفن</p>
+              <p className="text-sm  mb-1">تلفن</p>
               <a
                 href="tel:051-36572582"
                 className="text-gray-900 hover:text-purple-600 transition-colors"
@@ -46,11 +58,17 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-100">
-              <MapPin className="w-6 h-6 text-purple-600" />
+            <div className="flex items-center justify-center w-12 h-12 rounded-full ">
+            <Image
+              src="/images/location.png"
+              alt="map icon"
+              className="max-w-full max-h-full object-contain"
+              width={48}
+              height={48}
+            />
             </div>
             <div>
-              <p className="text-sm text-gray-500 mb-1">آدرس</p>
+              <p className="text-sm  mb-1">آدرس</p>
               <p className="text-gray-900">
                 مشهد - بزرگراه آزادی - جنب بیمارستان رضوی - پیامبر اعظم ۱۷ -
                 پلاک ۴
