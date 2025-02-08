@@ -158,9 +158,11 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            خدمات ما
+          <h2 className="text-3xl md:text-4xl font-bold  mb-12">
+            فعالیت ها
           </h2>
+
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-card p-6 rounded-lg shadow-lg">
@@ -187,3 +189,68 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+//carousel code
+{/*
+  import React, { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const images = [
+  '/images/image1.jpg',
+  '/images/image2.jpg',
+  '/images/image3.jpg'
+];
+
+const Carousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-full flex items-center justify-center">
+        {images.map((image, index) => {
+          const position = index === currentIndex ? 'translate-x-0 scale-100 z-20' : index === (currentIndex + 1) % images.length ? 'translate-x-full scale-75 z-10' : 'translate-x-[-100%] scale-75 z-10';
+          
+          return (
+            <img
+              key={index}
+              src={image}
+              alt={`Slide ${index + 1}`}
+              className={`absolute transition-transform duration-700 ease-in-out ${position} rounded-2xl shadow-xl`}
+            />
+          );
+        })}
+      </div>
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition"
+      >
+        <ChevronRight size={24} />
+      </button>
+    </div>
+  );
+};
+
+export default Carousel;
+
+  */}
