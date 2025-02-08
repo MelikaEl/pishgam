@@ -14,7 +14,7 @@ export default function Footer() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div className="space-y-6">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg w-full">
             <div className="flex items-center justify-center w-12 h-12 rounded-full ">
             <Image
               src="/images/sms-tracking.png"
@@ -24,7 +24,7 @@ export default function Footer() {
               height={48}
             />
             </div>
-            <div>
+            <div >
               <p className="text-sm  mb-1">ایمیل</p>
               <a
                 href="mailto:info@atripa.com"
@@ -35,7 +35,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg w-full ">
             <div className="flex items-center justify-center w-12 h-12 rounded-full ">
             <Image
               src="/images/call-calling.png"
@@ -46,7 +46,7 @@ export default function Footer() {
             />
             </div>
             <div>
-              <p className="text-sm  mb-1">تلفن</p>
+              <p className="text-sm  mb-1 ">تلفن</p>
               <a
                 href="tel:051-36572582"
                 className="text-gray-900 hover:text-purple-600 transition-colors"
@@ -57,7 +57,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg w-full">
             <div className="flex items-center justify-center w-12 h-12 rounded-full ">
             <Image
               src="/images/location.png"
