@@ -3,6 +3,9 @@ import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import nbn from "@/public/images/Frame.png";
 import { Star, Clock, Shield } from "lucide-react";
+import Carousel from "@/components/carousel";
+
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -163,7 +166,7 @@ export default function Home() {
           </h2>
 
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-card p-6 rounded-lg shadow-lg">
                 <div className="h-48 mb-4 bg-muted rounded-md overflow-hidden">
@@ -183,7 +186,9 @@ export default function Home() {
                 </Button>
               </div>
             ))}
-          </div>
+          </div> */}
+          <Carousel/>
+          
         </div>
       </section>
     </div>
