@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
-const images = ["/images/service-one.png", "/images/atripa-project.png", "/images/service-two.png"];
+interface CarouselProps {
+  images: string[];
+}
 
-const Carousel = () => {
+const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {

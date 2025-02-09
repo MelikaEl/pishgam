@@ -188,7 +188,11 @@ export default function Home() {
               <TabsTrigger value="three" className="flex-1">برق</TabsTrigger>
             </TabsList>
             <TabsContent value="account">
-            <Carousel />
+            <Carousel images={[
+                "/images/service-one.png", 
+                "/images/atripa-project.png", 
+                "/images/service-two.png"
+              ]} />
             </TabsContent>
             <TabsContent value="password">
               Change your password here.
