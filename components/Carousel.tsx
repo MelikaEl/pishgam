@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
-const images = ["/images/lamp.png", "/images/link.png", "/images/location.png"];
+const images = ["/images/service-one.png", "/images/atripa-project.png", "/images/service-two.png"];
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,8 +37,8 @@ const Carousel = () => {
 
           return (
             <Image
-              width={120}
-              height={120}
+              width={626}
+              height={422}
               key={index}
               src={image}
               alt={`Slide ${index + 1}`}
