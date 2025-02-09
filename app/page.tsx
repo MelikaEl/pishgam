@@ -183,22 +183,30 @@ export default function Home() {
           </div> */}
           <Tabs defaultValue="account" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8">
-              <TabsTrigger value="account" className="flex-1">گردشگری</TabsTrigger>
-              <TabsTrigger value="password" className="flex-1">توسعه نرم افزار</TabsTrigger>
-              <TabsTrigger value="three" className="flex-1">برق</TabsTrigger>
+              <TabsTrigger value="first" className="flex-1">گردشگری</TabsTrigger>
+              <TabsTrigger value="second" className="flex-1">توسعه نرم افزار</TabsTrigger>
+              <TabsTrigger value="third" className="flex-1">برق</TabsTrigger>
             </TabsList>
-            <TabsContent value="account">
+            <TabsContent value="first">
             <Carousel images={[
                 "/images/service-one.png", 
                 "/images/atripa-project.png", 
                 "/images/service-two.png"
               ]} />
             </TabsContent>
-            <TabsContent value="password">
-              Change your password here.
+            <TabsContent value="second">
+            <Carousel images={[
+                "/images/carousel-p2-1.png", 
+                "/images/carousel-p2-2.png", 
+                "/images/carousel-p2-3.png"
+              ]} />
             </TabsContent>
-            <TabsContent value="three">
-              Change your three here.
+            <TabsContent value="third">
+            <Carousel images={[
+                "/images/service-one.png", 
+                "/images/atripa-project.png", 
+                "/images/service-two.png"
+              ]} />
             </TabsContent>
           </Tabs>
          
