@@ -12,10 +12,10 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-between relative bg-gradient-to-b from-primary/10 to-background pt-16"
+        className="min-h-screen flex flex-col md:flex-row items-center justify-between relative bg-gradient-to-b from-primary/10 to-background pt-16"
       >
         {/* Right Logo */}
-        <div className="flex-1 h-screen flex items-center justify-center p-8">
+        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8">
           <Image
             src="/images/Frame.png" // Replace with your left logo path
             alt="Left Logo"
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         {/* Left Logo */}
-        <div className="flex-1 h-screen flex items-center justify-center p-8">
+        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8">
           <Image
             src="/images/Frame1.png" // Replace with your right logo path
             alt="Right Logo"
