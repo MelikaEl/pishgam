@@ -26,14 +26,21 @@ export default function Home() {
         </div>
 
         {/* Left Logo */}
-        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8">
+        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8 relative">
           <Image
-            src="/images/Frame1.png" // Replace with your right logo path
+            src="/images/Frame1.png"
             alt="Right Logo"
             className="max-w-full max-h-full object-contain"
             width={768}
             height={778}
           />
+
+          {/* Text Overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 ">
+            <h2 className="text-2xl md:text-4xl font-bold text-black mb-4">
+              پیشگام در فناوری
+            </h2>
+          </div>
         </div>
 
         {/* <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
@@ -183,34 +190,44 @@ export default function Home() {
           </div> */}
           <Tabs defaultValue="account" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8">
-              <TabsTrigger value="first" className="flex-1">گردشگری</TabsTrigger>
-              <TabsTrigger value="second" className="flex-1">توسعه نرم افزار</TabsTrigger>
-              <TabsTrigger value="third" className="flex-1">برق</TabsTrigger>
+              <TabsTrigger value="first" className="flex-1">
+                گردشگری
+              </TabsTrigger>
+              <TabsTrigger value="second" className="flex-1">
+                توسعه نرم افزار
+              </TabsTrigger>
+              <TabsTrigger value="third" className="flex-1">
+                برق
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="first">
-            <Carousel images={[
-                "/images/service-one.png", 
-                "/images/atripa-project.png", 
-                "/images/service-two.png"
-              ]} />
+              <Carousel
+                images={[
+                  "/images/service-one.png",
+                  "/images/atripa-project.png",
+                  "/images/service-two.png",
+                ]}
+              />
             </TabsContent>
             <TabsContent value="second">
-            <Carousel images={[
-                "/images/carousel-p2-1.png", 
-                "/images/carousel-p2-2.png", 
-                "/images/carousel-p2-3.png"
-              ]} />
+              <Carousel
+                images={[
+                  "/images/carousel-p2-1.png",
+                  "/images/carousel-p2-2.png",
+                  "/images/carousel-p2-3.png",
+                ]}
+              />
             </TabsContent>
             <TabsContent value="third">
-            <Carousel images={[
-                "/images/service-one.png", 
-                "/images/atripa-project.png", 
-                "/images/service-two.png"
-              ]} />
+              <Carousel
+                images={[
+                  "/images/service-one.png",
+                  "/images/atripa-project.png",
+                  "/images/service-two.png",
+                ]}
+              />
             </TabsContent>
           </Tabs>
-         
-          
         </div>
       </section>
     </div>
