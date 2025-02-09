@@ -188,7 +188,7 @@ export default function Home() {
               </div>
             ))}
           </div> */}
-          <Tabs defaultValue="account" className="w-full" dir="rtl">
+          <Tabs defaultValue="first" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8">
               <TabsTrigger value="first" className="flex-1">
                 گردشگری
