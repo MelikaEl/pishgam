@@ -3,8 +3,8 @@ import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import nbn from "@/public/images/Frame.png";
 import { Star, Clock, Shield } from "lucide-react";
-import Carousel from "@/components/carousel";
-
+import Carousel from "@/components/Carousel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   return (
@@ -79,8 +79,8 @@ export default function Home() {
                 {/* Card 1 */}
                 <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
                   <div className="bg-white p-2 rounded-lg">
-                  <Image
-                      src="/images/lamp.png" 
+                    <Image
+                      src="/images/lamp.png"
                       alt="rocket icon"
                       className="max-w-full max-h-full object-contain"
                       width={109}
@@ -88,16 +88,13 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">
-                      نوآوری
-                    </h4>
+                    <h4 className="text-xl font-bold mb-2">نوآوری</h4>
                     <p className="text-gray-600">
-                    استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
+                      استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
                       راهکارهای
                     </p>
                   </div>
                 </div>
-
 
                 {/* 
                 <div>
@@ -112,8 +109,8 @@ export default function Home() {
                 {/* Card 2 */}
                 <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
                   <div className="bg-white p-2 rounded-lg">
-                  <Image
-                      src="/images/rocket.png" 
+                    <Image
+                      src="/images/rocket.png"
                       alt="rocket icon"
                       className="max-w-full max-h-full object-contain"
                       width={109}
@@ -134,8 +131,8 @@ export default function Home() {
                 {/* Card 3 */}
                 <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
                   <div className="bg-white p-2 rounded-lg">
-                  <Image
-                      src="/images/link.png" 
+                    <Image
+                      src="/images/link.png"
                       alt="link icon"
                       className="max-w-full max-h-full object-contain"
                       width={109}
@@ -161,11 +158,8 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold  mb-12">
-            فعالیت ها
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold  mb-12">فعالیت ها</h2>
 
-          
           {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <div key={item} className="bg-card p-6 rounded-lg shadow-lg">
@@ -187,7 +181,23 @@ export default function Home() {
               </div>
             ))}
           </div> */}
-          <Carousel/>
+          <Tabs defaultValue="account" className="w-full" dir="rtl">
+            <TabsList className="w-full justify-start mb-8">
+              <TabsTrigger value="account" className="flex-1">گردشگری</TabsTrigger>
+              <TabsTrigger value="password" className="flex-1">توسعه نرم افزار</TabsTrigger>
+              <TabsTrigger value="three" className="flex-1">برق</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+            <Carousel />
+            </TabsContent>
+            <TabsContent value="password">
+              Change your password here.
+            </TabsContent>
+            <TabsContent value="three">
+              Change your three here.
+            </TabsContent>
+          </Tabs>
+         
           
         </div>
       </section>
@@ -195,10 +205,9 @@ export default function Home() {
   );
 }
 
-
-
 //carousel code
-{/*
+{
+  /*
   import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -258,4 +267,5 @@ const Carousel = () => {
 
 export default Carousel;
 
-  */}
+  */
+}
