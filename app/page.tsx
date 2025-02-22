@@ -8,8 +8,30 @@ import { Star, Clock, Shield } from "lucide-react";
 import Carousel from "@/components/Carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const texts = ["فناوری", "آینده ای هوشمند", "نوآوری"];
 
 export default function Home() {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 2000); // Adjust interval for appearance duration
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
+  }, []);
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -40,7 +62,7 @@ export default function Home() {
               ease: "linear", // Use a linear easing function for a constant rotation speed
             }}
             className="absolute w-[80%] h-[80%] flex items-center justify-center"
-            style={{transformOrigin: 'center center'}}
+            style={{ transformOrigin: "center center" }}
           >
             <Image
               src="/images/Frame1.png"
@@ -54,8 +76,18 @@ export default function Home() {
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 ">
             <h2 className="text-2xl md:text-4xl font-bold text-black mb-4">
-              پیشگام در فناوری
+              پیشگام در
             </h2>
+            <motion.div
+              key={currentTextIndex}
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="text-2xl md:text-4xl text-black"
+            >
+              {texts[currentTextIndex]}
+            </motion.div>
           </div>
         </div>
 
@@ -250,67 +282,4 @@ export default function Home() {
   );
 }
 
-//carousel code
-{
-  /*
-  import React, { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const images = [
-  '/images/image1.jpg',
-  '/images/image2.jpg',
-  '/images/image3.jpg'
-];
-
-const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
-      <div className="relative w-full h-full flex items-center justify-center">
-        {images.map((image, index) => {
-          const position = index === currentIndex ? 'translate-x-0 scale-100 z-20' : index === (currentIndex + 1) % images.length ? 'translate-x-full scale-75 z-10' : 'translate-x-[-100%] scale-75 z-10';
-          
-          return (
-            <img
-              key={index}
-              src={image}
-              alt={`Slide ${index + 1}`}
-              className={`absolute transition-transform duration-700 ease-in-out ${position} rounded-2xl shadow-xl`}
-            />
-          );
-        })}
-      </div>
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition"
-      >
-        <ChevronRight size={24} />
-      </button>
-    </div>
-  );
-};
-
-export default Carousel;
-
-  */
-}
