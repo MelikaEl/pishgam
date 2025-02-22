@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
@@ -5,6 +7,7 @@ import nbn from "@/public/images/Frame.png";
 import { Star, Clock, Shield } from "lucide-react";
 import Carousel from "@/components/Carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -27,13 +30,24 @@ export default function Home() {
 
         {/* Left Logo */}
         <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8 relative">
-          <Image
-            src="/images/Frame1.png"
-            alt="Right Logo"
-            className="max-w-full max-h-full object-contain"
-            width={768}
-            height={778}
-          />
+          <motion.div
+            animate={{
+              rotate: [0, -90, 0],
+            }}
+            transition={{
+              duration: 15, // Adjust the duration to control the speed of rotation
+              repeat: Infinity, // Repeat the animation infinitely
+              ease: "linear", // Use a linear easing function for a constant rotation speed
+            }}
+          >
+            <Image
+              src="/images/Frame1.png"
+              alt="Right Logo"
+              className="max-w-full max-h-full object-contain"
+              width={768}
+              height={778}
+            />
+          </motion.div>
 
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 ">
