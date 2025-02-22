@@ -75,7 +75,7 @@ export default function Home() {
 
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 ">
-            <h2 className="text-2xl md:text-4xl font-bold text-black mb-4">
+            <h2 className="text-2xl md:text-5xl font-bold text-black mb-4">
               پیشگام در
             </h2>
             <motion.div
@@ -84,7 +84,7 @@ export default function Home() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="text-2xl md:text-4xl text-black"
+              className=" bg-gradient-text bg-clip-text text-transparent text-2xl md:text-4xl text-black font-bold"
             >
               {texts[currentTextIndex]}
             </motion.div>

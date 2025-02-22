@@ -13,6 +13,7 @@ const config: Config = {
         yekan:['var(--font-yekan-bakh)'],
       },
       backgroundImage: {
+        'gradient-text': 'linear-gradient(90deg, #3D76DC, #7D2DC8)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
