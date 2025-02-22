@@ -21,7 +21,7 @@ export default function Home() {
         <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8">
           <Image
             src="/images/Frame.png" // Replace with your left logo path
-            alt="Left Logo"
+            alt="Right Logo"
             className="max-w-full max-h-full object-contain"
             width={504}
             height={455}
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         {/* Left Logo */}
-        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8 relative">
+        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8 relative overflow-hidden">
           <motion.div
             animate={{
               rotate: [0, -90, 0],
@@ -39,11 +39,13 @@ export default function Home() {
               repeat: Infinity, // Repeat the animation infinitely
               ease: "linear", // Use a linear easing function for a constant rotation speed
             }}
+            className="absolute w-[80%] h-[80%] flex items-center justify-center"
+            style={{transformOrigin: 'center center'}}
           >
             <Image
               src="/images/Frame1.png"
-              alt="Right Logo"
-              className="max-w-full max-h-full object-contain"
+              alt="Left Logo"
+              className="w-auto h-auto max-w-full max-h-full object-contain"
               width={768}
               height={778}
             />
