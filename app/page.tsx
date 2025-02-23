@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const texts = ["فناوری", "آینده ای هوشمند", "نوآوری"];
+const texts = [ "آینده ای هوشمند","فناوری", "نوآوری"];
 
 export default function Home() {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -74,8 +74,8 @@ export default function Home() {
           </motion.div>
 
           {/* Text Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 gap-10 ">
-            <h2 className="text-2xl md:text-5xl font-bold text-black mb-4 flex flex-col items-center gap-10">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:gap-10 ">
+            <h2 className="text-2xl md:text-5xl font-bold text-black mb-4 flex flex-col items-center md:gap-10">
             <span>پیشگام</span>
             <span>در</span>
             </h2>
