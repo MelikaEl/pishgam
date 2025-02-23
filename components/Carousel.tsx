@@ -6,19 +6,26 @@ import Image from "next/image";
 
 interface CarouselProps {
   images: string[];
+  onChange: (index: number) => void; // New callback function
 }
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % images.length;
+      onChange(newIndex); // Notify parent
+      return newIndex;
+    });
   };
 
   const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex - 1 + images.length) % images.length;
+      onChange(newIndex); // Notify parent
+      return newIndex;
+    });
   };
 
   useEffect(() => {

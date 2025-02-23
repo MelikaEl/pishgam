@@ -13,8 +13,34 @@ import Card from "@/components/Card";
 
 const texts = [ "آینده ای هوشمند","فناوری", "نوآوری"];
 
+const cardContents = [
+  {
+    title: "گردشگری هوشمند",
+    description: "تجربه‌ای جدید از سفر با فناوری‌های نوین و راهکارهای دیجیتال.",
+    bulletPoints: [
+      "رزرو هوشمند",
+      "راهنمای مجازی",
+      "پیشنهادات سفر شخصی‌سازی‌شده",
+    ],
+    buttonText: "بیشتر بدانید",
+  },
+  {
+    title: "توسعه نرم افزار",
+    description: "راهکارهای نوآورانه نرم‌افزاری برای تحول دیجیتال.",
+    bulletPoints: ["هوش مصنوعی", "امنیت سایبری", "تحلیل داده"],
+    buttonText: "مشاهده پروژه‌ها",
+  },
+  {
+    title: "صنعت برق",
+    description: "بهینه‌سازی و اتوماسیون سیستم‌های انرژی برای آینده‌ای پایدار.",
+    bulletPoints: ["مدیریت انرژی", "شبکه‌های هوشمند", "پایداری زیست‌محیطی"],
+    buttonText: "همکاری با ما",
+  },
+];
+
 export default function Home() {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -214,61 +240,61 @@ export default function Home() {
 
       {/* Services Section */}
       <section id="services" className="min-h-screen flex items-center py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold  mb-12">فعالیت ها</h2>
-          <Tabs defaultValue="first" className="w-full" dir="rtl">
-            <TabsList className="w-full justify-start mb-8">
-              <TabsTrigger value="first" className="flex-1">
-                گردشگری
-              </TabsTrigger>
-              <TabsTrigger value="second" className="flex-1">
-                توسعه نرم افزار
-              </TabsTrigger>
-              <TabsTrigger value="third" className="flex-1">
-                برق
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="first">
-              <Carousel
-                images={[
-                  "/images/service-one.png",
-                  "/images/atripa-project.png",
-                  "/images/service-two.png",
-                ]}
-              />
-            </TabsContent>
-            <TabsContent value="second">
-              <Carousel
-                images={[
-                  "/images/carousel-p2-1.png",
-                  "/images/carousel-p2-2.png",
-                  "/images/carousel-p2-3.png",
-                ]}
-              />
-            </TabsContent>
-            <TabsContent value="third">
-              <Carousel
-                images={[
-                  "/images/service-one.png",
-                  "/images/atripa-project.png",
-                  "/images/service-two.png",
-                ]}
-              />
-            </TabsContent>
-          </Tabs>
-          <Card 
-          title="Welcome to Our App"
-          description="This is a sample card component built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui."
-          bulletPoints={[
-            'Reusable and customizable',
-            'Styled with Tailwind CSS',
-            'Uses shadcn/ui components',
-          ]}
-          buttonText="Click Me"
-          
-          />
-        </div>
-      </section>
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12">فعالیت ها</h2>
+        <Tabs defaultValue="first" className="w-full" dir="rtl">
+          <TabsList className="w-full justify-start mb-8">
+            <TabsTrigger value="first" className="flex-1">
+              گردشگری
+            </TabsTrigger>
+            <TabsTrigger value="second" className="flex-1">
+              توسعه نرم افزار
+            </TabsTrigger>
+            <TabsTrigger value="third" className="flex-1">
+              برق
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="first">
+            <Carousel
+              images={[
+                "/images/service-one.png",
+                "/images/atripa-project.png",
+                "/images/service-two.png",
+              ]}
+              onChange={setCurrentImageIndex} // Pass function
+            />
+          </TabsContent>
+          <TabsContent value="second">
+            <Carousel
+              images={[
+                "/images/carousel-p2-1.png",
+                "/images/carousel-p2-2.png",
+                "/images/carousel-p2-3.png",
+              ]}
+              onChange={setCurrentImageIndex}
+            />
+          </TabsContent>
+          <TabsContent value="third">
+            <Carousel
+              images={[
+                "/images/service-one.png",
+                "/images/atripa-project.png",
+                "/images/service-two.png",
+              ]}
+              onChange={setCurrentImageIndex}
+            />
+          </TabsContent>
+        </Tabs>
+
+        {/* Card component updates dynamically based on `currentImageIndex` */}
+        <Card
+          title={cardContents[currentImageIndex].title}
+          description={cardContents[currentImageIndex].description}
+          bulletPoints={cardContents[currentImageIndex].bulletPoints}
+          buttonText={cardContents[currentImageIndex].buttonText}
+        />
+      </div>
+    </section>
     </div>
   );
 }
