@@ -9,6 +9,7 @@ import Carousel from "@/components/Carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Card from "@/components/Card";
 
 const texts = [ "آینده ای هوشمند","فناوری", "نوآوری"];
 
@@ -215,28 +216,6 @@ export default function Home() {
       <section id="services" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold  mb-12">فعالیت ها</h2>
-
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-card p-6 rounded-lg shadow-lg">
-                <div className="h-48 mb-4 bg-muted rounded-md overflow-hidden">
-                  <img
-                    src={`https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500`}
-                    alt={`Service ${item}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-2">خدمت {item}</h3>
-                <p className="text-muted-foreground mb-4">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  استفاده از طراحان گرافیک است.
-                </p>
-                <Button variant="secondary" className="w-full">
-                  جزئیات بیشتر
-                </Button>
-              </div>
-            ))}
-          </div> */}
           <Tabs defaultValue="first" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8">
               <TabsTrigger value="first" className="flex-1">
@@ -277,6 +256,17 @@ export default function Home() {
               />
             </TabsContent>
           </Tabs>
+          <Card 
+          title="Welcome to Our App"
+          description="This is a sample card component built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui."
+          bulletPoints={[
+            'Reusable and customizable',
+            'Styled with Tailwind CSS',
+            'Uses shadcn/ui components',
+          ]}
+          buttonText="Click Me"
+          
+          />
         </div>
       </section>
     </div>
