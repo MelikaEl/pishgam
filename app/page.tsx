@@ -10,7 +10,49 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const texts = [ "آینده ای هوشمند","فناوری", "نوآوری"];
+const texts = ["آینده ای هوشمند", "فناوری", "نوآوری"];
+
+const sampleItems = [
+  {
+    image: "/images/service-one.png",
+    card: {
+      header: "Explore Nature",
+      paragraph: "Discover the beauty of untouched landscapes.",
+      bullets: [
+        "Guided hikes through forests",
+        "Stunning views of mountains",
+        "Wildlife spotting opportunities",
+      ],
+      buttonText: "Book Now",
+    },
+  },
+  {
+    image: "/images/atripa-project.png",
+    card: {
+      header: "Cultural Journey",
+      paragraph: "Immerse yourself in local traditions.",
+      bullets: [
+        "Visit historical landmarks",
+        "Taste authentic cuisine",
+        "Meet local artisans",
+      ],
+      buttonText: "Learn More",
+    },
+  },
+  {
+    image: "/images/service-two.png",
+    card: {
+      header: "Adventure Awaits",
+      paragraph: "Thrilling experiences for adrenaline junkies.",
+      bullets: [
+        "Rock climbing sessions",
+        "River rafting trips",
+        "Skydiving adventures",
+      ],
+      buttonText: "Get Started",
+    },
+  },
+];
 
 export default function Home() {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -76,8 +118,8 @@ export default function Home() {
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:gap-10 ">
             <h2 className="text-2xl md:text-5xl font-bold text-black mb-4 flex flex-col items-center md:gap-10">
-            <span>پیشگام</span>
-            <span>در</span>
+              <span>پیشگام</span>
+              <span>در</span>
             </h2>
             <motion.div
               key={currentTextIndex}
@@ -215,28 +257,6 @@ export default function Home() {
       <section id="services" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold  mb-12">فعالیت ها</h2>
-
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-card p-6 rounded-lg shadow-lg">
-                <div className="h-48 mb-4 bg-muted rounded-md overflow-hidden">
-                  <img
-                    src={`https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500`}
-                    alt={`Service ${item}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-2">خدمت {item}</h3>
-                <p className="text-muted-foreground mb-4">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  استفاده از طراحان گرافیک است.
-                </p>
-                <Button variant="secondary" className="w-full">
-                  جزئیات بیشتر
-                </Button>
-              </div>
-            ))}
-          </div> */}
           <Tabs defaultValue="first" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8">
               <TabsTrigger value="first" className="flex-1">
@@ -250,31 +270,15 @@ export default function Home() {
               </TabsTrigger>
             </TabsList>
             <TabsContent value="first">
-              <Carousel
-                images={[
-                  "/images/service-one.png",
-                  "/images/atripa-project.png",
-                  "/images/service-two.png",
-                ]}
-              />
+              <Carousel items={sampleItems} />
             </TabsContent>
             <TabsContent value="second">
-              <Carousel
-                images={[
-                  "/images/carousel-p2-1.png",
-                  "/images/carousel-p2-2.png",
-                  "/images/carousel-p2-3.png",
-                ]}
-              />
+              <Carousel items={sampleItems} />{" "}
+              {/* Replace with relevant items */}
             </TabsContent>
             <TabsContent value="third">
-              <Carousel
-                images={[
-                  "/images/service-one.png",
-                  "/images/atripa-project.png",
-                  "/images/service-two.png",
-                ]}
-              />
+              <Carousel items={sampleItems} />{" "}
+              {/* Replace with relevant items */}
             </TabsContent>
           </Tabs>
         </div>
@@ -282,5 +286,3 @@ export default function Home() {
     </div>
   );
 }
-
-
