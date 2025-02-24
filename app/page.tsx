@@ -180,7 +180,7 @@ export default function Home() {
               <h3 className="text-2xl font-semibold mb-8">چرا ما؟</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
-                <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
+                <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
                   <div className="bg-white p-2 rounded-lg">
                     <Image
                       src="/images/lamp.png"
@@ -210,7 +210,7 @@ export default function Home() {
                 */}
 
                 {/* Card 2 */}
-                <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
+                <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
                   <div className="bg-white p-2 rounded-lg">
                     <Image
                       src="/images/rocket.png"
@@ -232,7 +232,7 @@ export default function Home() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="bg-gray-50 p-6 rounded-lg flex items-start gap-4">
+                <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
                   <div className="bg-white p-2 rounded-lg">
                     <Image
                       src="/images/link.png"
