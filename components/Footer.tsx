@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div id="footer" className="container mx-auto px-4 py-12 font-sans" dir="rtl">
+    <div id="footer" className="container mx-auto px-4 py-12" dir="rtl">
       <h2 className="text-3xl font-bold mb-6">تماس با ما</h2>
 
       <p className=" mb-8 leading-relaxed">
