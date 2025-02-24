@@ -37,14 +37,22 @@ const Navbar = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between ">
         {/* <div className="flex-1 text-2xl font-bold">لوگو</div> */}
 
-        {/* Logo */}
+      {/* Logo - Right aligned on desktop, centered on mobile */}
         <div
-          className={`transition-all duration-300 ${
-            showLogo ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-          }`}
+          className={`
+          transition-all duration-300
+          absolute left-1/2 md:left-4 
+          transform -translate-x-1/2 md:translate-x-0
+          ${
+            showLogo
+              ? "opacity-100 top-1/2 -translate-y-1/2"
+              : "opacity-0 -top-full"
+          }
+          md:relative md:top-auto md:transform-none
+        `}
         >
           <Image
-            src="/images/home-logo.png" // Replace with your logo path
+            src="/images/home-logo.png"
             alt="Logo"
             width={40}
             height={40}
