@@ -243,14 +243,14 @@ export default function Home() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12">فعالیت ها</h2>
         <Tabs defaultValue="first" className="w-full" dir="rtl">
-          <TabsList className="w-full justify-start mb-8">
-            <TabsTrigger value="first" className="flex-1">
+          <TabsList className="w-full justify-start mb-8 p-7 px-0">
+            <TabsTrigger value="first" className="flex-1 p-4">
               گردشگری
             </TabsTrigger>
-            <TabsTrigger value="second" className="flex-1">
+            <TabsTrigger value="second" className="flex-1 p-4">
               توسعه نرم افزار
             </TabsTrigger>
-            <TabsTrigger value="third" className="flex-1">
+            <TabsTrigger value="third" className="flex-1 p-4">
               برق
             </TabsTrigger>
           </TabsList>
