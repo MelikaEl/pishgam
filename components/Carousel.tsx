@@ -58,13 +58,13 @@ const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
       </div>
       <button
         onClick={prevSlide}
-        className="absolute left-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition"
+        className="absolute left-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition z-30"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition"
+        className="absolute right-4 p-2 bg-white rounded-full shadow-md hover:bg-gray-200 transition z-30"
       >
         <ChevronRight size={24} />
       </button>
