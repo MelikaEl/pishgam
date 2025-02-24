@@ -36,16 +36,21 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b">
       <div className="container mx-auto px-4 h-16 flex items-center ">
         {/* <div className="flex-1 text-2xl font-bold">لوگو</div> */}
-
-      {/* Logo - Right aligned on desktop, centered on mobile */}
+        {/* Logo - Right aligned on desktop, centered on mobile */}
         {/* Logo with Text */}
-        <div className={`
+        <div
+          className={`
           transition-all duration-300
           absolute left-1/2 md:left-4 
           transform -translate-x-1/2 md:translate-x-0
-          ${showLogo ? 'opacity-100 top-1/2 -translate-y-1/2' : 'opacity-0 -top-full'}
+          ${
+            showLogo
+              ? "opacity-100 top-1/2 -translate-y-1/2"
+              : "opacity-0 -top-full"
+          }
           md:relative md:top-auto md:transform-none
-        `}>
+        `}
+        >
           <div className="flex items-center gap-3">
             <Image
               src="/images/home-logo.png"
@@ -55,8 +60,31 @@ const Navbar = () => {
               className="object-contain"
             />
             <div className="hidden md:block">
-              <h3 className="font-bold text-lg">آتریپا</h3>
-              <p className="text-sm text-muted-foreground">پیشگام در فناوری</p>
+              <h3 className="font-bold text-base">
+                {" "}
+                پیشگام پرتو گشت{" "}
+                <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+                  ویرا
+                </span>
+              </h3>
+              <p className="text-sm text-gray-500">
+                <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+                  P
+                </span>
+                ishgam{" "}
+                <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+                  P
+                </span>
+                arto{" "}
+                <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+                  G
+                </span>
+                asht{" "}
+                <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+                  V
+                </span>
+                ira
+              </p>
             </div>
           </div>
         </div>
@@ -90,10 +118,9 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-
-         {/* Empty div for spacing on desktop */}
-         <div className="hidden md:block w-[200px]" /> {/* Adjust width to match logo container width */}
-
+        {/* Empty div for spacing on desktop */}
+        <div className="hidden md:block w-[200px]" />{" "}
+        {/* Adjust width to match logo container width */}
         {/* Mobile Menu */}
         <div className="md:hidden ml-auto">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
