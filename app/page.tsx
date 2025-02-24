@@ -81,8 +81,23 @@ export default function Home() {
               ویرا
             </span>
           </p>
-          <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap">
-            Pishgam Parto Gasht Vira
+          <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap text-gray-500">
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              P
+            </span>
+            ishgam{" "}
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              P
+            </span>
+            arto{" "}
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              G
+            </span>
+            asht{" "}
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              V
+            </span>
+            ira
           </p>
         </div>
         {/* Left Logo */}
