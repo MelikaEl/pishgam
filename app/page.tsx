@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Card from "@/components/Card";
 
-const texts = [ "آینده ای هوشمند","فناوری", "نوآوری"];
+const texts = ["آینده ای هوشمند", "فناوری", "نوآوری"];
 
 const cardContents = [
   {
@@ -67,16 +67,21 @@ export default function Home() {
         className="min-h-screen flex flex-col md:flex-row items-center justify-between relative pt-16"
       >
         {/* Right Logo */}
-        <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8">
+        <div className="w-full md:flex-1 h-[30vh] md:h-screen flex flex-col items-center justify-center p-8">
           <Image
-            src="/images/Frame.png" // Replace with your left logo path
+            src="/images/home-logo.png" // Replace with your left logo path
             alt="Right Logo"
             className="max-w-full max-h-full object-contain"
-            width={504}
-            height={455}
+            width={283}
+            height={311}
           />
+          <p className="font-bold text-xl md:text-4xl p-4 text-center bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent whitespace-nowrap">
+            پیشگام پرتو گشت ویرا
+          </p>
+          <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap">
+            Pishgam Parto Gasht Vira
+          </p>
         </div>
-
         {/* Left Logo */}
         <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8 relative overflow-hidden">
           <motion.div
@@ -103,8 +108,8 @@ export default function Home() {
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:gap-10 ">
             <h2 className="text-2xl md:text-5xl font-bold text-black mb-4 flex flex-col items-center md:gap-10">
-            <span>پیشگام</span>
-            <span>در</span>
+              <span>پیشگام</span>
+              <span>در</span>
             </h2>
             <motion.div
               key={currentTextIndex}
@@ -125,10 +130,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className="min-h-screen flex items-center py-20"
-      >
+      <section id="about" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
             {/* Part 1 */}
@@ -240,63 +242,61 @@ export default function Home() {
 
       {/* Services Section */}
       <section id="services" className="min-h-screen flex items-center py-20">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">فعالیت ها</h2>
-        <Tabs defaultValue="first" className="w-full" dir="rtl">
-          <TabsList className="w-full justify-start mb-8 p-7 px-0">
-            <TabsTrigger value="first" className="flex-1 p-4">
-              گردشگری
-            </TabsTrigger>
-            <TabsTrigger value="second" className="flex-1 p-4">
-              توسعه نرم افزار
-            </TabsTrigger>
-            <TabsTrigger value="third" className="flex-1 p-4">
-              برق
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="first">
-            <Carousel
-              images={[
-                "/images/service-one.png",
-                "/images/atripa-project.png",
-                "/images/service-two.png",
-              ]}
-              onChange={setCurrentImageIndex} // Pass function
-            />
-          </TabsContent>
-          <TabsContent value="second">
-            <Carousel
-              images={[
-                "/images/carousel-p2-1.png",
-                "/images/carousel-p2-2.png",
-                "/images/carousel-p2-3.png",
-              ]}
-              onChange={setCurrentImageIndex}
-            />
-          </TabsContent>
-          <TabsContent value="third">
-            <Carousel
-              images={[
-                "/images/service-one.png",
-                "/images/atripa-project.png",
-                "/images/service-two.png",
-              ]}
-              onChange={setCurrentImageIndex}
-            />
-          </TabsContent>
-        </Tabs>
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">فعالیت ها</h2>
+          <Tabs defaultValue="first" className="w-full" dir="rtl">
+            <TabsList className="w-full justify-start mb-8 p-7 px-0">
+              <TabsTrigger value="first" className="flex-1 p-4">
+                گردشگری
+              </TabsTrigger>
+              <TabsTrigger value="second" className="flex-1 p-4">
+                توسعه نرم افزار
+              </TabsTrigger>
+              <TabsTrigger value="third" className="flex-1 p-4">
+                برق
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="first">
+              <Carousel
+                images={[
+                  "/images/service-one.png",
+                  "/images/atripa-project.png",
+                  "/images/service-two.png",
+                ]}
+                onChange={setCurrentImageIndex} // Pass function
+              />
+            </TabsContent>
+            <TabsContent value="second">
+              <Carousel
+                images={[
+                  "/images/carousel-p2-1.png",
+                  "/images/carousel-p2-2.png",
+                  "/images/carousel-p2-3.png",
+                ]}
+                onChange={setCurrentImageIndex}
+              />
+            </TabsContent>
+            <TabsContent value="third">
+              <Carousel
+                images={[
+                  "/images/service-one.png",
+                  "/images/atripa-project.png",
+                  "/images/service-two.png",
+                ]}
+                onChange={setCurrentImageIndex}
+              />
+            </TabsContent>
+          </Tabs>
 
-        {/* Card component updates dynamically based on `currentImageIndex` */}
-        <Card
-          title={cardContents[currentImageIndex].title}
-          description={cardContents[currentImageIndex].description}
-          bulletPoints={cardContents[currentImageIndex].bulletPoints}
-          buttonText={cardContents[currentImageIndex].buttonText}
-        />
-      </div>
-    </section>
+          {/* Card component updates dynamically based on `currentImageIndex` */}
+          <Card
+            title={cardContents[currentImageIndex].title}
+            description={cardContents[currentImageIndex].description}
+            bulletPoints={cardContents[currentImageIndex].bulletPoints}
+            buttonText={cardContents[currentImageIndex].buttonText}
+          />
+        </div>
+      </section>
     </div>
   );
 }
-
-
