@@ -17,16 +17,16 @@ const Card: React.FC<CardProps> = ({
   
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 max-w-sm mx-auto">
+    <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto m-10 ">
       {/* Header */}
-      <h2 className="text-xl font-bold text-gray-800 mb-4">{title}</h2>
+      <h2 className="text-xl font-bold text-gray-800 mb-4 text-center bg-custom-gray rounded p-3">{title}</h2>
 
       {/* Body */}
       <div>
         <p className="text-gray-600 mb-4">{description}</p>
 
         {/* Bullet Points */}
-        <ul className="list-disc pl-5 space-y-2 text-gray-700">
+        <ul className="list-disc pl-5 space-y-2 text-gray-700 p-3">
           {bulletPoints.map((point, index) => (
             <li key={index}>{point}</li>
           ))}
@@ -34,8 +34,8 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       {/* Button */}
-      <div className="mt-6">
-        <Button  className="w-full">
+      <div className="mt-6 flex justify-end">
+        <Button  className="">
           {buttonText}
         </Button>
       </div>

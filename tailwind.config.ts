@@ -26,6 +26,7 @@ const config: Config = {
       colors: {
         'custom-blue': '#4360D1',
         'custom-purple': '#7327C0',
+        'custom-gray': '#F2F7FF',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
