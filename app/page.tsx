@@ -60,11 +60,11 @@ export default function Home() {
     exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
   };
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex flex-col md:flex-row items-center justify-between relative bg-gradient-to-b from-primary/10 to-background pt-16"
+        className="min-h-screen flex flex-col md:flex-row items-center justify-between relative pt-16"
       >
         {/* Right Logo */}
         <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8">
