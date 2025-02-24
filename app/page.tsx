@@ -75,8 +75,11 @@ export default function Home() {
             width={283}
             height={311}
           />
-          <p className="font-bold text-xl md:text-4xl p-4 text-center bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent whitespace-nowrap">
-            پیشگام پرتو گشت ویرا
+          <p className="font-bold text-xl md:text-4xl p-4 text-center whitespace-nowrap">
+            پیشگام پرتو گشت{" "}
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              ویرا
+            </span>
           </p>
           <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap">
             Pishgam Parto Gasht Vira
