@@ -3,11 +3,27 @@
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("home");
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get the hero section height
+      const heroSection = document.getElementById("home");
+      const heroHeight = heroSection?.offsetHeight || 0;
+
+      // Show logo when scrolled past hero section
+      setShowLogo(window.scrollY > heroHeight - 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
     { name: "صفحه اصلی", href: "#home", id: "home" },
@@ -21,6 +37,20 @@ const Navbar = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between ">
         {/* <div className="flex-1 text-2xl font-bold">لوگو</div> */}
 
+        {/* Logo */}
+        <div
+          className={`transition-all duration-300 ${
+            showLogo ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+          }`}
+        >
+          <Image
+            src="/images/home-logo.png" // Replace with your logo path
+            alt="Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
+        </div>
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6 mx-auto">
           {menuItems.map((item) => (
@@ -45,7 +75,7 @@ const Navbar = () => {
                   absolute bottom-0 left-0 w-full h-0.5
                   bg-gradient-to-r from-custom-purple to-custom-blue
                   transform origin-left scale-x-0 transition-transform duration-300
-                  ${activeItem === item.id ? 'scale-x-100' : ''}
+                  ${activeItem === item.id ? "scale-x-100" : ""}
                 `}
               />
             </a>
