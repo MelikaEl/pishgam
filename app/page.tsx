@@ -127,7 +127,7 @@ export default function Home() {
       {/* About Section */}
       <section
         id="about"
-        className="min-h-screen flex items-center bg-muted py-20"
+        className="min-h-screen flex items-center py-20"
       >
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
