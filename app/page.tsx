@@ -180,12 +180,12 @@ export default function Home() {
               <h3 className="text-2xl font-semibold mb-8">چرا ما؟</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
-                <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="w-[109px] h-[109px] flex items-center justify-center rounded-lg aspect-square">
+                <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex items-center gap-4">
+                  <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/lamp.png"
                       alt="rocket icon"
-                      className="max-w-full max-h-full object-contain"
+                      className="w-full h-full object-contain"
                       width={109}
                       height={109}
                     />
@@ -199,19 +199,9 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* 
-                <div>
-                    <h4 className="text-xl font-bold mb-2">نوآوری</h4>
-                    <p>
-                      استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
-                      ایجاد راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
-                    </p>
-                  </div>
-                */}
-
                 {/* Card 2 */}
-                <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="w-[109px] h-[109px] flex items-center justify-center rounded-lg aspect-square">
+                <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex items-center gap-4">
+                  <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/rocket.png"
                       alt="rocket icon"
@@ -232,8 +222,8 @@ export default function Home() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="w-[109px] h-[109px] flex items-center justify-center rounded-lg aspect-square">
+                <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex items-center gap-4">
+                  <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/link.png"
                       alt="link icon"
