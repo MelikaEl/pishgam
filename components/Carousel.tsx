@@ -28,10 +28,11 @@ const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
     });
   };
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  {/*move slides automatically */}
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 3000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
