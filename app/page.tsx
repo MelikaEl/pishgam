@@ -181,7 +181,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
                 <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="bg-white rounded-lg">
+                  <div className="w-[109px] h-[109px] flex items-center justify-center rounded-lg aspect-square">
                     <Image
                       src="/images/lamp.png"
                       alt="rocket icon"
@@ -211,7 +211,7 @@ export default function Home() {
 
                 {/* Card 2 */}
                 <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="bg-white rounded-lg">
+                  <div className="w-[109px] h-[109px] flex items-center justify-center rounded-lg aspect-square">
                     <Image
                       src="/images/rocket.png"
                       alt="rocket icon"
@@ -233,7 +233,7 @@ export default function Home() {
 
                 {/* Card 3 */}
                 <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="bg-white rounded-lg">
+                  <div className="w-[109px] h-[109px] flex items-center justify-center rounded-lg aspect-square">
                     <Image
                       src="/images/link.png"
                       alt="link icon"
