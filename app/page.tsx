@@ -181,7 +181,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
                 <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="bg-white p-2 rounded-lg">
+                  <div className="bg-white rounded-lg">
                     <Image
                       src="/images/lamp.png"
                       alt="rocket icon"
@@ -194,7 +194,7 @@ export default function Home() {
                     <h4 className="text-xl font-bold mb-2">نوآوری</h4>
                     <p className="text-gray-600">
                       استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
-                      راهکارهای
+                      راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
                     </p>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export default function Home() {
 
                 {/* Card 2 */}
                 <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="bg-white p-2 rounded-lg">
+                  <div className="bg-white rounded-lg">
                     <Image
                       src="/images/rocket.png"
                       alt="rocket icon"
@@ -233,7 +233,7 @@ export default function Home() {
 
                 {/* Card 3 */}
                 <div className="bg-gray-100 p-6 rounded-lg flex items-start gap-4">
-                  <div className="bg-white p-2 rounded-lg">
+                  <div className="bg-white rounded-lg">
                     <Image
                       src="/images/link.png"
                       alt="link icon"
