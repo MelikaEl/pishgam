@@ -184,15 +184,15 @@ export default function Home() {
                   <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/lamp.png"
-                      alt="rocket icon"
-                      className="w-full h-full object-contain"
+                      alt="lamp icon"
+                      className="max-w-full max-h-full object-contain"
                       width={109}
                       height={109}
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">نوآوری</h4>
-                    <p className="text-gray-600">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">نوآوری</h4>
+                    <p className="text-gray-600 text-sm md:text-base">
                       استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
                       راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
                     </p>
@@ -211,10 +211,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">
                       بهینه سازی و بهره وری
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm md:text-base">
                       کاهش هزینه ها،افزایش سرعت و ارائه راهکارهای مقرون به صرفه
                       و کارآمد
                     </p>
@@ -233,10 +233,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">
+                    <h4 className="text-lg md:text-xl font-bold mb-2">
                       یکپارچگی و اتوماسیون
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm md:text-base">
                       توسعه پلتفرم های دیجیتال و سیستم های مدیریت هوشمند برای
                       سهولت در استفاده
                     </p>
