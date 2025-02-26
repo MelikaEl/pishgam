@@ -22,7 +22,9 @@ export default function RootLayout({
       <body className={`${yekanBakh.className}`}>
         <Navbar />
         <main>{children}</main>
+        <div className="bg-gray-100">
         <Footer />
+        </div>
       </body>
     </html>
   );
