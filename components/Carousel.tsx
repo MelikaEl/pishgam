@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 interface CarouselProps {
   images: string[];
-  onChange: (index: number) => void; // New callback function
+  onChange: (index: number) => void;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
@@ -15,7 +15,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = (prevIndex + 1) % images.length;
-      onChange(newIndex); // Notify parent
+      onChange(newIndex);
       return newIndex;
     });
   };
@@ -23,31 +23,26 @@ const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = (prevIndex - 1 + images.length) % images.length;
-      onChange(newIndex); // Notify parent
+      onChange(newIndex);
       return newIndex;
     });
   };
-
-  {/*move slides automatically */}
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 3000);
-  //   return () => clearInterval(interval);
-  // }, []);
 
   return (
     <div className="relative w-full h-96 flex items-center justify-center overflow-hidden">
       <div className="relative w-full h-full flex items-center justify-center">
         {images.map((image, index) => {
-          const position =
-            index === currentIndex
-              ? "translate-x-0 scale-100 z-20"
-              : index === (currentIndex + 1) % images.length
-              ? "translate-x-full scale-75 z-10"
-              : "translate-x-[-100%] scale-75 z-10";
+          const isActive = index === currentIndex;
+          const isPrev = (index + 1) % images.length === currentIndex;
+          const isNext = (index - 1 + images.length) % images.length === currentIndex;
+
+          let position = "translate-x-0 scale-100 z-20"; // Center image
+          if (isNext) position = "translate-x-[-75%] scale-75 z-10"; // Left image (smaller)
+          if (isPrev) position = "translate-x-[75%] scale-75 z-10"; // Right image (smaller)
 
           return (
             <Image
-              width={626}
+              width={550}
               height={422}
               key={index}
               src={image}
