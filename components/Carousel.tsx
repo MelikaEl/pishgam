@@ -37,8 +37,8 @@ const Carousel: React.FC<CarouselProps> = ({ images, onChange }) => {
           const isNext = (index - 1 + images.length) % images.length === currentIndex;
 
           let position = "translate-x-0 scale-100 z-20"; // Center image
-          if (isNext) position = "translate-x-[-75%] scale-75 z-10"; // Left image (smaller)
-          if (isPrev) position = "translate-x-[75%] scale-75 z-10"; // Right image (smaller)
+          if (isNext) position = "md:translate-x-[-75%] scale-75 z-10"; // Left image (smaller)
+          if (isPrev) position = "md:translate-x-[75%] scale-75 z-10"; // Right image (smaller)
 
           return (
             <Image
