@@ -180,8 +180,8 @@ export default function Home() {
               <h3 className="text-2xl font-semibold mb-8">چرا ما؟</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex items-center gap-4">
-                  <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
+                <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
+                  <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/lamp.png"
                       alt="lamp icon"
@@ -191,8 +191,8 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-lg md:text-xl font-bold mb-2">نوآوری</h4>
-                    <p className="text-gray-600 text-sm md:text-base">
+                    <h4 className="text-sm md:text-xl font-bold md:mb-2">نوآوری</h4>
+                    <p className="text-gray-600 text-xs md:text-base">
                       استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
                       راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
                     </p>
@@ -200,8 +200,8 @@ export default function Home() {
                 </div>
 
                 {/* Card 2 */}
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex items-center gap-4">
-                  <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
+                <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
+                  <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/rocket.png"
                       alt="rocket icon"
@@ -211,10 +211,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-lg md:text-xl font-bold mb-2">
+                    <h4 className="text-sm md:text-xl font-bold md:mb-2">
                       بهینه سازی و بهره وری
                     </h4>
-                    <p className="text-gray-600 text-sm md:text-base">
+                    <p className="text-gray-600 text-xs md:text-base">
                       کاهش هزینه ها،افزایش سرعت و ارائه راهکارهای مقرون به صرفه
                       و کارآمد
                     </p>
@@ -222,8 +222,8 @@ export default function Home() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="bg-gray-100 p-4 md:p-6 rounded-lg flex items-center gap-4">
-                  <div className="rounded-lg w-[69px] h-[69px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
+                <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
+                  <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                     <Image
                       src="/images/link.png"
                       alt="link icon"
@@ -233,10 +233,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-lg md:text-xl font-bold mb-2">
+                    <h4 className="text-sm md:text-xl font-bold md:mb-2">
                       یکپارچگی و اتوماسیون
                     </h4>
-                    <p className="text-gray-600 text-sm md:text-base">
+                    <p className="text-gray-600 text-xs md:text-base">
                       توسعه پلتفرم های دیجیتال و سیستم های مدیریت هوشمند برای
                       سهولت در استفاده
                     </p>
