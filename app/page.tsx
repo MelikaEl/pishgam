@@ -153,7 +153,7 @@ export default function Home() {
           <div className="flex flex-col gap-12">
             {/* Part 1 */}
             <div className=" p-8 ">
-              <h3 className="text-2xl font-semibold mb-4">درباره ما</h3>
+              <h3 className="text-2xl font-semibold mb-4 flex justify-center md:justify-start">درباره ما</h3>
               <p className="text-lg ">
                 هلدینگ پیشگام پرتو گشت ویرا با هدف ایجاد تحول در صنایع مختلف از
                 طریق نوآوری و فناوری تاسیس شده است. ما در سه حوزه گردشگری، توسعه
@@ -166,7 +166,7 @@ export default function Home() {
 
             {/* Part 2 */}
             <div className=" p-8 ">
-              <h3 className="text-2xl font-semibold mb-4">ماموریت ما</h3>
+              <h3 className="text-2xl font-semibold mb-4 flex justify-center md:justify-start">ماموریت ما</h3>
               <p className="text-lg ">
                 ما به دنبال ارائه راهکارهای هوشمند و خلاقانه در بخش های
                 گردشگری،فناوری و انرژی هستیم تا با بهسته سازی فرآیندها،کاهش
@@ -177,7 +177,7 @@ export default function Home() {
 
             {/* Part 3 */}
             <div className="p-8">
-              <h3 className="text-2xl font-semibold mb-8">چرا ما؟</h3>
+              <h3 className="text-2xl font-semibold mb-8 flex justify-center md:justify-start">چرا ما؟</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
                 <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
@@ -251,7 +251,7 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="min-h-screen flex items-center py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">فعالیت ها</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 flex justify-center md:justify-start">فعالیت ها</h2>
           <Tabs defaultValue="first" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8 p-7 px-0">
               <TabsTrigger value="first" className="flex-1 p-4">
