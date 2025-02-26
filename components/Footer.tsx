@@ -77,14 +77,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="relative h-[400px] bg-gray-100 rounded-lg overflow-hidden">
+        <div className="relative h-[250px] md:h-[400px] bg-gray-100 rounded-lg overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/images/map.png"
               alt="map image"
-              className="max-w-full max-h-full object-contain"
+              className="w-full h-full object-contain md:object-cover"
               width={768}
               height={512}
+              priority
             />
           </div>
         </div>
