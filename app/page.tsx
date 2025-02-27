@@ -39,6 +39,8 @@ const cardContents = [
 ];
 
 export default function Home() {
+
+  //snap scrolling
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
       event.preventDefault();
@@ -60,6 +62,7 @@ export default function Home() {
     return () => window.removeEventListener("wheel", handleScroll);
   }, []);
 
+  //change text in service section based on the image change
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
