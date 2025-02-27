@@ -39,6 +39,27 @@ const cardContents = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    const handleScroll = (event: WheelEvent) => {
+      event.preventDefault();
+      const sections = document.querySelectorAll(".section");
+      let currentIndex = Array.from(sections).findIndex(
+        (section) => section.getBoundingClientRect().top >= 0
+      );
+      
+
+      if (event.deltaY > 0 && currentIndex < sections.length - 1) {
+        sections[currentIndex + 1].scrollIntoView({ behavior: "smooth" });
+      } else if (event.deltaY < 0 && currentIndex > 0) {
+        sections[currentIndex - 1].scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    window.addEventListener("wheel", handleScroll, { passive: false });
+
+    return () => window.removeEventListener("wheel", handleScroll);
+  }, []);
+
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -64,7 +85,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex flex-col md:flex-row items-center justify-between relative pt-16"
+        className="min-h-screen section flex flex-col md:flex-row items-center justify-between relative pt-16"
       >
         {/* Right Logo */}
         <div className="w-full md:flex-1 h-[30vh] md:h-screen flex flex-col items-center justify-center p-8">
@@ -148,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen flex items-center py-20">
+      <section id="about" className="min-h-screen section flex items-center py-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
             {/* Part 1 */}
@@ -249,7 +270,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="min-h-screen flex items-center py-20">
+      <section id="services" className="min-h-screen section flex items-center py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">فعالیت ها</h2>
           <Tabs defaultValue="first" className="w-full" dir="rtl">
