@@ -11,18 +11,42 @@ const Navbar = () => {
   const [activeItem, setActiveItem] = useState("home");
   const [showLogo, setShowLogo] = useState(false);
 
+  // Existing scroll listener for showing the logo
   useEffect(() => {
     const handleScroll = () => {
-      // Get the hero section height
       const heroSection = document.getElementById("home");
       const heroHeight = heroSection?.offsetHeight || 0;
-
-      // Show logo when scrolled past hero section
       setShowLogo(window.scrollY > heroHeight - 100);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // New IntersectionObserver to update activeItem based on visible section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Update the active item to the id of the section in view
+            setActiveItem(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.6, // Adjust this threshold as needed
+      }
+    );
+
+    // Select all sections with the "section" class
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((section) => observer.observe(section));
+
+    // Cleanup
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
 
   const menuItems = [
@@ -35,9 +59,6 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b">
       <div className="container mx-auto px-4 h-16 flex items-center ">
-        {/* <div className="flex-1 text-2xl font-bold">لوگو</div> */}
-        {/* Logo - Right aligned on desktop, centered on mobile */}
-        {/* Logo with Text */}
         <div
           className={`
           transition-all duration-300
@@ -61,7 +82,6 @@ const Navbar = () => {
             />
             <div className="hidden md:block">
               <h3 className="font-bold text-base">
-                {" "}
                 پیشگام پرتو گشت{" "}
                 <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
                   ویرا
@@ -97,7 +117,8 @@ const Navbar = () => {
               onClick={() => setActiveItem(item.id)}
               className={`
                 relative py-2
-                hover:bg-gradient-to-r hover:to-custom-purple hover:from-custom-blue  hover:bg-clip-text hover:text-transparent
+                hover:bg-gradient-to-r hover:to-custom-purple hover:from-custom-blue  
+                hover:bg-clip-text hover:text-transparent
                 transition-colors
                 ${
                   activeItem === item.id
@@ -118,9 +139,7 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        {/* Empty div for spacing on desktop */}
-        <div className="hidden md:block w-[200px]" />{" "}
-        {/* Adjust width to match logo container width */}
+        <div className="hidden md:block w-[200px]" />
         {/* Mobile Menu */}
         <div className="md:hidden ml-auto">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -141,7 +160,8 @@ const Navbar = () => {
                     }}
                     className={`
                       relative py-2
-                      hover:bg-gradient-to-r hover:from-custom-purple hover:to-custom-blue hover:bg-clip-text hover:text-transparent
+                      hover:bg-gradient-to-r hover:from-custom-purple hover:to-custom-blue 
+                      hover:bg-clip-text hover:text-transparent
                       transition-colors
                       ${
                         activeItem === item.id
