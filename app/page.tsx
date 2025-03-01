@@ -6,6 +6,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Card from "@/components/Card";
+import { BASE_URL } from "@/utils/apiConfig";
+import axios from "axios";
 
 const texts = ["آینده ای هوشمند", "فناوری", "نوآوری"];
 
@@ -35,6 +37,28 @@ const cardContents = [
 ];
 
 export default function Home() {
+  //api call
+  const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/basic/about_us/`);
+        if (response.data.length > 0) {
+          setDescription(response.data[0].persian_description);
+        }
+      } catch (err) {
+        setError("خطا در دریافت اطلاعات");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   //snap scrolling
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
@@ -177,14 +201,13 @@ export default function Home() {
               <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">
                 درباره ما
               </h3>
-              <p className="text-lg ">
-                هلدینگ پیشگام پرتو گشت ویرا با هدف ایجاد تحول در صنایع مختلف از
-                طریق نوآوری و فناوری تاسیس شده است. ما در سه حوزه گردشگری، توسعه
-                نرم افزار و صنعت برق فعالیت میکنیم و تلاش داریم با استفاده از
-                فناوری های نوین، راهکارهای هوشمند و داده محور ، تجربه ای کارآمد
-                تر، هوشمند تر و پایدار تر را برای کسب و کارها و کاربران ایجاد
-                کنیم
-              </p>
+              {loading ? (
+                <p className="text-lg">در حال بارگذاری...</p>
+              ) : error ? (
+                <p className="text-lg text-red-500">{error}</p>
+              ) : (
+                <p className="text-lg">{description}</p>
+              )}
             </div>
 
             {/* Part 2 */}
