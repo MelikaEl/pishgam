@@ -1,10 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import nbn from "@/public/images/Frame.png";
-import { Star, Clock, Shield } from "lucide-react";
 import Carousel from "@/components/Carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
@@ -39,7 +35,6 @@ const cardContents = [
 ];
 
 export default function Home() {
-
   //snap scrolling
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
@@ -48,7 +43,6 @@ export default function Home() {
       let currentIndex = Array.from(sections).findIndex(
         (section) => section.getBoundingClientRect().top >= 0
       );
-      
 
       if (event.deltaY > 0 && currentIndex < sections.length - 1) {
         sections[currentIndex + 1].scrollIntoView({ behavior: "smooth" });
@@ -172,12 +166,17 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen section flex items-center py-20">
+      <section
+        id="about"
+        className="min-h-screen section flex items-center py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
             {/* Part 1 */}
             <div className=" p-8 ">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">درباره ما</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">
+                درباره ما
+              </h3>
               <p className="text-lg ">
                 هلدینگ پیشگام پرتو گشت ویرا با هدف ایجاد تحول در صنایع مختلف از
                 طریق نوآوری و فناوری تاسیس شده است. ما در سه حوزه گردشگری، توسعه
@@ -190,7 +189,9 @@ export default function Home() {
 
             {/* Part 2 */}
             <div className=" p-8 ">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">ماموریت ما</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">
+                ماموریت ما
+              </h3>
               <p className="text-lg ">
                 ما به دنبال ارائه راهکارهای هوشمند و خلاقانه در بخش های
                 گردشگری،فناوری و انرژی هستیم تا با بهسته سازی فرآیندها،کاهش
@@ -201,7 +202,9 @@ export default function Home() {
 
             {/* Part 3 */}
             <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 flex justify-center md:justify-start">چرا ما؟</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-8 flex justify-center md:justify-start">
+                چرا ما؟
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 1 */}
                 <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
@@ -215,7 +218,9 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm md:text-xl font-bold md:mb-2">نوآوری</h4>
+                    <h4 className="text-sm md:text-xl font-bold md:mb-2">
+                      نوآوری
+                    </h4>
                     <p className="text-gray-600 text-xs md:text-base">
                       استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
                       راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
@@ -273,9 +278,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="min-h-screen section flex items-center py-20">
+      <section
+        id="services"
+        className="min-h-screen section flex items-center py-20"
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">فعالیت ها</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">
+            فعالیت ها
+          </h2>
           <Tabs defaultValue="first" className="w-full" dir="rtl">
             <TabsList className="w-full justify-start mb-8 p-7 px-0">
               <TabsTrigger value="first" className="flex-1 p-4">
@@ -332,3 +342,38 @@ export default function Home() {
     </div>
   );
 }
+
+/**
+import { BASE_URL } from "@/utils/apiConfig";
+import axios from "axios";
+
+ //api call
+  interface DataType {
+    title: string;
+    // Add other properties if needed
+  }
+
+  const [data, setData] = useState<DataType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/basic/whyus/`)
+      .then((response) => {
+        setData(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setError(err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading data.</div>;
+
+  return <div>{data ? <h1>{data.title}</h1> : "No data found"}</div>;
+}
+ */
