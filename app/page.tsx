@@ -233,7 +233,7 @@ export default function Home() {
             >
               <TabsList className="w-full justify-start mb-8 p-7 px-0">
                 {content.activities.map((service, index) => (
-                  <TabsTrigger key={index} value={index.toString()}>
+                  <TabsTrigger key={index} value={index.toString()} className="flex-1 p-4">
                     {service.persian_name}
                   </TabsTrigger>
                 ))}
@@ -271,7 +271,7 @@ export default function Home() {
                     ? currentProduct.features.map((feat: any) => feat.persian_description)
                     : []
                 }
-                buttonText="بیشتر بدانید"
+                buttonText="مشاهده وبسایت"
               />
             )}
         </div>
