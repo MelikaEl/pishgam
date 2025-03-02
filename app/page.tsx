@@ -38,17 +38,27 @@ const cardContents = [
 
 export default function Home() {
   //api call
-  const [description, setDescription] = useState("");
+  interface ContentType {
+    aboutUs: { persian_description: string }[];
+    mission: any[];
+    whyUs: any[];
+    activities: any[];
+  }
+
+  const [content, setContent] = useState<ContentType>({
+    aboutUs: [],
+    mission: [],
+    whyUs: [],
+    activities: [],
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/basic/about_us');
-        if (response.data.length > 0) {
-          setDescription(response.data[0].persian_description);
-        }
+        const response = await axios.get("/api/content");
+        setContent(response.data);
       } catch (err) {
         setError("خطا در دریافت اطلاعات");
       } finally {
@@ -206,7 +216,9 @@ export default function Home() {
               ) : error ? (
                 <p className="text-lg text-red-500">{error}</p>
               ) : (
-                <p className="text-lg">{description}</p>
+                <p className="text-lg">
+                  {content.aboutUs[0]?.persian_description}
+                </p>
               )}
             </div>
 
@@ -215,11 +227,12 @@ export default function Home() {
               <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">
                 ماموریت ما
               </h3>
-              <p className="text-lg ">
-                ما به دنبال ارائه راهکارهای هوشمند و خلاقانه در بخش های
-                گردشگری،فناوری و انرژی هستیم تا با بهسته سازی فرآیندها،کاهش
-                هزینه ها و افزایش بهره وری،تاثیری مثبت و ماندگار بر صنایع مختلف
-                داشته باشیم
+              <p className="text-lg">
+                {loading
+                  ? "در حال بارگذاری..."
+                  : error
+                  ? error
+                  : content.mission[0]?.persian_description}
               </p>
             </div>
 
@@ -229,71 +242,37 @@ export default function Home() {
                 چرا ما؟
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Card 1 */}
-                <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
-                  <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
-                    <Image
-                      src="/images/lamp.png"
-                      alt="lamp icon"
-                      className="max-w-full max-h-full object-contain"
-                      width={109}
-                      height={109}
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm md:text-xl font-bold md:mb-2">
-                      نوآوری
-                    </h4>
-                    <p className="text-gray-600 text-xs md:text-base">
-                      استفاده از هوش مصنوعی،داده کاوی و اینترنت اشیا (IOT) برای
-                      راهکارهای هوشمند در گردشگری،نرم افزار و صنعت برق
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card 2 */}
-                <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
-                  <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
-                    <Image
-                      src="/images/rocket.png"
-                      alt="rocket icon"
-                      className="max-w-full max-h-full object-contain"
-                      width={109}
-                      height={109}
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm md:text-xl font-bold md:mb-2">
-                      بهینه سازی و بهره وری
-                    </h4>
-                    <p className="text-gray-600 text-xs md:text-base">
-                      کاهش هزینه ها،افزایش سرعت و ارائه راهکارهای مقرون به صرفه
-                      و کارآمد
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card 3 */}
-                <div className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
-                  <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
-                    <Image
-                      src="/images/link.png"
-                      alt="link icon"
-                      className="max-w-full max-h-full object-contain"
-                      width={109}
-                      height={109}
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm md:text-xl font-bold md:mb-2">
-                      یکپارچگی و اتوماسیون
-                    </h4>
-                    <p className="text-gray-600 text-xs md:text-base">
-                      توسعه پلتفرم های دیجیتال و سیستم های مدیریت هوشمند برای
-                      سهولت در استفاده
-                    </p>
-                  </div>
-                </div>
+                {loading ? (
+                  <p className="text-lg">در حال بارگذاری...</p>
+                ) : error ? (
+                  <p className="text-lg text-red-500">{error}</p>
+                ) : (
+                  content.whyUs.map((item: any, index: number) => (
+                    <div
+                      key={index}
+                      className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4"
+                    >
+                      {/* Image from API */}
+                      <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
+                        <Image
+                          src={`${BASE_URL}${item.image}`} // Assuming API returns a field "imageUrl"
+                          alt={item.persian_title}
+                          className="max-w-full max-h-full object-contain"
+                          width={109}
+                          height={109}
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-sm md:text-xl font-bold md:mb-2">
+                          {item.persian_title}
+                        </h4>
+                        <p className="text-gray-600 text-xs md:text-base">
+                          {item.persian_description}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
@@ -400,8 +379,6 @@ import axios from "axios";
   return <div>{data ? <h1>{data.title}</h1> : "No data found"}</div>;
 }
  */
-
-
 
 /*
  module.exports = function (app) {
