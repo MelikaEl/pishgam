@@ -11,40 +11,16 @@ import axios from "axios";
 
 const texts = ["آینده ای هوشمند", "فناوری", "نوآوری"];
 
-const cardContents = [
-  {
-    title: "گردشگری هوشمند",
-    description: "تجربه‌ای جدید از سفر با فناوری‌های نوین و راهکارهای دیجیتال.",
-    bulletPoints: [
-      "رزرو هوشمند",
-      "راهنمای مجازی",
-      "پیشنهادات سفر شخصی‌سازی‌شده",
-    ],
-    buttonText: "بیشتر بدانید",
-  },
-  {
-    title: "توسعه نرم افزار",
-    description: "راهکارهای نوآورانه نرم‌افزاری برای تحول دیجیتال.",
-    bulletPoints: ["هوش مصنوعی", "امنیت سایبری", "تحلیل داده"],
-    buttonText: "مشاهده پروژه‌ها",
-  },
-  {
-    title: "صنعت برق",
-    description: "بهینه‌سازی و اتوماسیون سیستم‌های انرژی برای آینده‌ای پایدار.",
-    bulletPoints: ["مدیریت انرژی", "شبکه‌های هوشمند", "پایداری زیست‌محیطی"],
-    buttonText: "همکاری با ما",
-  },
-];
-
 export default function Home() {
-  //api call
+  // Define a type for our unified content
   interface ContentType {
     aboutUs: { persian_description: string }[];
-    mission: any[];
-    whyUs: any[];
-    activities: any[];
+    mission: { persian_description: string }[];
+    whyUs: any[]; // Each item should include persian_title, persian_description, image, etc.
+    activities: any[]; // Activities represent the services section data
   }
 
+  // Unified state for all sections
   const [content, setContent] = useState<ContentType>({
     aboutUs: [],
     mission: [],
@@ -54,11 +30,20 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // State for managing active service tab and active product index per service
+  const [activeTab, setActiveTab] = useState(0);
+  const [activeProductIndices, setActiveProductIndices] = useState<number[]>([]);
+
+  // Unified API fetch for all content
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("/api/content");
         setContent(response.data);
+        // Initialize an array of zeros based on the number of service items
+        if (response.data.activities) {
+          setActiveProductIndices(new Array(response.data.activities.length).fill(0));
+        }
       } catch (err) {
         setError("خطا در دریافت اطلاعات");
       } finally {
@@ -69,7 +54,7 @@ export default function Home() {
     fetchData();
   }, []);
 
-  //snap scrolling
+  // Snap scrolling logic remains unchanged
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
       event.preventDefault();
@@ -86,42 +71,43 @@ export default function Home() {
     };
 
     window.addEventListener("wheel", handleScroll, { passive: false });
-
     return () => window.removeEventListener("wheel", handleScroll);
   }, []);
 
-  //change text in service section based on the image change
+  // Change text in hero section
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 2000); // Adjust interval for appearance duration
-
-    return () => clearInterval(intervalId); // Cleanup on unmount
+    }, 2000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
   };
+
+  // Determine the current product for the active service tab
+  const currentService = content.activities[activeTab];
+  const currentProduct =
+    currentService &&
+    currentService.products &&
+    currentService.products.length > 0
+      ? currentService.products[activeProductIndices[activeTab]]
+      : null;
+
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section
         id="home"
         className="min-h-screen section flex flex-col md:flex-row items-center justify-between relative pt-16"
       >
-        {/* Right Logo */}
         <div className="w-full md:flex-1 h-[30vh] md:h-screen flex flex-col items-center justify-center p-8">
           <Image
-            src="/images/home-logo.png" // Replace with your left logo path
+            src="/images/home-logo.png"
             alt="Right Logo"
             className="max-w-full max-h-full object-contain"
             width={283}
@@ -134,35 +120,20 @@ export default function Home() {
             </span>
           </p>
           <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap text-gray-500">
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
-              P
-            </span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">P</span>
             ishgam{" "}
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
-              P
-            </span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">P</span>
             arto{" "}
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
-              G
-            </span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">G</span>
             asht{" "}
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
-              V
-            </span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">V</span>
             ira
           </p>
         </div>
-        {/* Left Logo */}
         <div className="w-full md:flex-1 h-[50vh] md:h-screen flex items-center justify-center p-8 relative overflow-hidden">
           <motion.div
-            animate={{
-              rotate: [0, -90, 0],
-            }}
-            transition={{
-              duration: 15, // Adjust the duration to control the speed of rotation
-              repeat: Infinity, // Repeat the animation infinitely
-              ease: "linear", // Use a linear easing function for a constant rotation speed
-            }}
+            animate={{ rotate: [0, -90, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             className="absolute w-[80%] h-[80%] flex items-center justify-center"
             style={{ transformOrigin: "center center" }}
           >
@@ -174,9 +145,7 @@ export default function Home() {
               height={778}
             />
           </motion.div>
-
-          {/* Text Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:gap-10 ">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 md:gap-10">
             <h2 className="text-2xl md:text-5xl font-bold text-black mb-4 flex flex-col items-center md:gap-10">
               <span>پیشگام</span>
               <span>در</span>
@@ -187,60 +156,36 @@ export default function Home() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className=" bg-gradient-text bg-clip-text text-transparent text-2xl md:text-5xl text-black font-bold"
+              className="bg-gradient-text bg-clip-text text-transparent text-2xl md:text-5xl text-black font-bold"
             >
               {texts[currentTextIndex]}
             </motion.div>
           </div>
         </div>
-
-        {/* <a href="#about" className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowDown className="h-6 w-6" />
-        </a> */}
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className="min-h-screen section flex items-center py-20"
-      >
+      <section id="about" className="min-h-screen section flex items-center py-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
-            {/* Part 1 */}
-            <div className=" p-8 ">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">
-                درباره ما
-              </h3>
+            <div className="p-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">درباره ما</h3>
               {loading ? (
                 <p className="text-lg">در حال بارگذاری...</p>
               ) : error ? (
                 <p className="text-lg text-red-500">{error}</p>
               ) : (
-                <p className="text-lg">
-                  {content.aboutUs[0]?.persian_description}
-                </p>
+                <p className="text-lg">{content.aboutUs[0]?.persian_description}</p>
               )}
             </div>
-
-            {/* Part 2 */}
-            <div className=" p-8 ">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">
-                ماموریت ما
-              </h3>
+            <div className="p-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">ماموریت ما</h3>
               <p className="text-lg">
-                {loading
-                  ? "در حال بارگذاری..."
-                  : error
-                  ? error
-                  : content.mission[0]?.persian_description}
+                {loading ? "در حال بارگذاری..." : error ? error : content.mission[0]?.persian_description}
               </p>
             </div>
-
-            {/* Part 3 */}
             <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 flex justify-center md:justify-start">
-                چرا ما؟
-              </h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-8 flex justify-center md:justify-start">چرا ما؟</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {loading ? (
                   <p className="text-lg">در حال بارگذاری...</p>
@@ -248,14 +193,10 @@ export default function Home() {
                   <p className="text-lg text-red-500">{error}</p>
                 ) : (
                   content.whyUs.map((item: any, index: number) => (
-                    <div
-                      key={index}
-                      className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4"
-                    >
-                      {/* Image from API */}
+                    <div key={index} className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
                       <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                         <Image
-                          src={`${BASE_URL}${item.image}`} // Assuming API returns a field "imageUrl"
+                          src={`${BASE_URL}${item.image}`}
                           alt={item.persian_title}
                           className="max-w-full max-h-full object-contain"
                           width={109}
@@ -263,12 +204,8 @@ export default function Home() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-sm md:text-xl font-bold md:mb-2">
-                          {item.persian_title}
-                        </h4>
-                        <p className="text-gray-600 text-xs md:text-base">
-                          {item.persian_description}
-                        </p>
+                        <h4 className="text-sm md:text-xl font-bold md:mb-2">{item.persian_title}</h4>
+                        <p className="text-gray-600 text-xs md:text-base">{item.persian_description}</p>
                       </div>
                     </div>
                   ))
@@ -280,113 +217,65 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section
-        id="services"
-        className="min-h-screen section flex items-center py-20"
-      >
+      <section id="services" className="min-h-screen section flex items-center py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">
-            فعالیت ها
-          </h2>
-          <Tabs defaultValue="first" className="w-full" dir="rtl">
-            <TabsList className="w-full justify-start mb-8 p-7 px-0">
-              <TabsTrigger value="first" className="flex-1 p-4">
-                گردشگری
-              </TabsTrigger>
-              <TabsTrigger value="second" className="flex-1 p-4">
-                توسعه نرم افزار
-              </TabsTrigger>
-              <TabsTrigger value="third" className="flex-1 p-4">
-                برق
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="first">
-              <Carousel
-                images={[
-                  "/images/service-one.png",
-                  "/images/atripa-project.png",
-                  "/images/service-two.png",
-                ]}
-                onChange={setCurrentImageIndex} // Pass function
-              />
-            </TabsContent>
-            <TabsContent value="second">
-              <Carousel
-                images={[
-                  "/images/carousel-p2-1.png",
-                  "/images/carousel-p2-2.png",
-                  "/images/carousel-p2-3.png",
-                ]}
-                onChange={setCurrentImageIndex}
-              />
-            </TabsContent>
-            <TabsContent value="third">
-              <Carousel
-                images={[
-                  "/images/service-one.png",
-                  "/images/atripa-project.png",
-                  "/images/service-two.png",
-                ]}
-                onChange={setCurrentImageIndex}
-              />
-            </TabsContent>
-          </Tabs>
+          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">فعالیت ها</h2>
+          {loading ? (
+            <p className="text-lg">در حال بارگذاری...</p>
+          ) : error ? (
+            <p className="text-lg text-red-500">{error}</p>
+          ) : content.activities.length > 0 ? (
+            <Tabs
+              value={activeTab.toString()}
+              onValueChange={(value) => setActiveTab(Number(value))}
+              className="w-full"
+              dir="rtl"
+            >
+              <TabsList className="w-full justify-start mb-8 p-7 px-0">
+                {content.activities.map((service, index) => (
+                  <TabsTrigger key={index} value={index.toString()}>
+                    {service.persian_name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {content.activities.map((service, index) => (
+                <TabsContent key={index} value={index.toString()}>
+                  {service.products && service.products.length > 0 ? (
+                    <Carousel
+                      images={service.products.map((product: any) => product.image)}
+                      onChange={(i: number) => {
+                        const newIndices = [...activeProductIndices];
+                        newIndices[index] = i;
+                        setActiveProductIndices(newIndices);
+                      }}
+                    />
+                  ) : (
+                    <p className="text-lg">فعالیته‌ای موجود نیست.</p>
+                  )}
+                </TabsContent>
+              ))}
+            </Tabs>
+          ) : (
+            <p className="text-lg">فعالیته‌ای موجود نیست.</p>
+          )}
 
-          {/* Card component updates dynamically based on `currentImageIndex` */}
-          <Card
-            title={cardContents[currentImageIndex].title}
-            description={cardContents[currentImageIndex].description}
-            bulletPoints={cardContents[currentImageIndex].bulletPoints}
-            buttonText={cardContents[currentImageIndex].buttonText}
-          />
+          {currentService &&
+            currentService.products &&
+            currentService.products.length > 0 &&
+            currentProduct && (
+              <Card
+                title={currentProduct.persian_name}
+                description={currentProduct.persian_description}
+                bulletPoints={
+                  currentProduct.features && currentProduct.features.length > 0
+                    ? currentProduct.features.map((feat: any) => feat.persian_description)
+                    : []
+                }
+                buttonText="بیشتر بدانید"
+              />
+            )}
         </div>
       </section>
     </div>
   );
 }
-
-/**
-import { BASE_URL } from "@/utils/apiConfig";
-import axios from "axios";
-
- //api call
-  interface DataType {
-    title: string;
-    // Add other properties if needed
-  }
-
-  const [data, setData] = useState<DataType | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}/basic/whyus/`)
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching data:", err);
-        setError(err);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading data.</div>;
-
-  return <div>{data ? <h1>{data.title}</h1> : "No data found"}</div>;
-}
- */
-
-/*
- module.exports = function (app) {
-        app.use(
-                "/account",
-                createProxyMiddleware({
-                        target: "https://dev.atripa.ir&quot;,
-                        changeOrigin: true,
-                }),
-        );}
-*/
