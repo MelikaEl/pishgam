@@ -45,7 +45,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/basic/about_us/`);
+        const response = await axios.get('/api/basic/about_us');
         if (response.data.length > 0) {
           setDescription(response.data[0].persian_description);
         }
@@ -400,3 +400,16 @@ import axios from "axios";
   return <div>{data ? <h1>{data.title}</h1> : "No data found"}</div>;
 }
  */
+
+
+
+/*
+ module.exports = function (app) {
+        app.use(
+                "/account",
+                createProxyMiddleware({
+                        target: "https://dev.atripa.ir&quot;,
+                        changeOrigin: true,
+                }),
+        );}
+*/
