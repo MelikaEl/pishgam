@@ -1,58 +1,89 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+"use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Footer() {
+  interface ContentType {
+    contactUs: any[]; // Each item should include persian_title, persian_description, image, etc.
+  }
+
+  const [content, setContent] = useState<ContentType>({
+    contactUs: [],
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/content");
+        setContent(response.data);
+      } catch (err) {
+        setError("خطا در دریافت اطلاعات");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div id="footer" className="container mx-auto px-4 py-12 section" dir="rtl">
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 flex justify-center md:justify-start">تماس با ما</h2>
-
-      <p className=" mb-8 text-lg ">
-        اگر می‌خواهید با ما در ارتباط باشید، تیم ما آماده پاسخگویی به سوالات،
-        پیشنهادات و همکاری‌های جدید است. می‌توانید از طریق تماس تلفنی یا ایمیل
-        با ما ارتباط بگیرید.
-      </p>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6 flex justify-center md:justify-start">
+        تماس با ما
+      </h2>
+      {loading ? (
+        <p className="text-lg">در حال بارگذاری...</p>
+      ) : error ? (
+        <p className="text-lg text-red-500">{error}</p>
+      ) : (
+        <p className=" mb-8 text-lg ">
+          {content.contactUs[0]?.persian_description}
+        </p>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div className="space-y-6">
           <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg w-full">
             <div className="flex items-center justify-center w-12 h-12 rounded-full ">
-            <Image
-              src="/images/sms-tracking.png"
-              alt="email icon"
-              className="max-w-full max-h-full object-contain"
-              width={48}
-              height={48}
-            />
+              <Image
+                src="/images/sms-tracking.png"
+                alt="email icon"
+                className="max-w-full max-h-full object-contain"
+                width={48}
+                height={48}
+              />
             </div>
             <div>
               <p className="text-sm  mb-1">ایمیل</p>
               <a
-                href="mailto:info@atripa.com"
+                href={`mailto:${content.contactUs[0]?.email}`}
                 className="text-gray-900 hover:bg-gradient-to-r hover:to-custom-purple hover:from-custom-blue  hover:bg-clip-text hover:text-transparent transition-colors"
               >
-                info@atripa.com
+                {content.contactUs[0]?.email}
               </a>
             </div>
           </div>
 
           <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg w-full ">
             <div className="flex items-center justify-center w-12 h-12 rounded-full ">
-            <Image
-              src="/images/call-calling.png"
-              alt="mobile icon"
-              className="max-w-full max-h-full object-contain"
-              width={48}
-              height={48}
-            />
+              <Image
+                src="/images/call-calling.png"
+                alt="mobile icon"
+                className="max-w-full max-h-full object-contain"
+                width={48}
+                height={48}
+              />
             </div>
             <div>
               <p className="text-sm mb-1">تلفن</p>
               <a
-                href="tel:051-36572582"
+                href={`tel:${content.contactUs[0]?.persian_phone_number}`}
                 className="text-gray-900 hover:bg-gradient-to-r hover:to-custom-purple hover:from-custom-blue  hover:bg-clip-text hover:text-transparent transition-colors"
                 dir="ltr"
               >
-                051-36572582
+                {content.contactUs[0]?.persian_phone_number}
               </a>
             </div>
           </div>
@@ -69,10 +100,15 @@ export default function Footer() {
             </div>
             <div className="flex-1">
               <p className="text-sm mb-1">آدرس</p>
-              <p className="text-gray-900 text-sm md:text-base">
-                مشهد - بزرگراه آزادی - جنب بیمارستان رضوی - پیامبر اعظم ۱۷ -
-                پلاک ۴
-              </p>
+              {loading ? (
+                <p className="text-lg">در حال بارگذاری...</p>
+              ) : error ? (
+                <p className="text-lg text-red-500">{error}</p>
+              ) : (
+                <p className="text-gray-900 text-sm md:text-base">
+                  {content.contactUs[0]?.persian_address}
+                </p>
+              )}
             </div>
           </div>
         </div>
