@@ -42,8 +42,8 @@ export default function Footer() {
   }, []);
 
   // Get coordinates from the API data, fallback to defaults if not available
-  const latitude = content.contactUs[0]?.latitude || 36.359915050502956;
-  const longitude = content.contactUs[0]?.longitude || 59.540969087475865;
+  const latitude = content.contactUs[0]?.latitude;
+  const longitude = content.contactUs[0]?.longitude;
 
   return (
     <div id="footer" className="container mx-auto px-4 py-12 section" dir="rtl">
