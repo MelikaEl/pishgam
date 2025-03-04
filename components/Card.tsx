@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({
 
   const handleButtonClick = () => {
     if (redirectUrl) {
-      router.push(redirectUrl); // Use router.push for client-side navigation
+      window.open(redirectUrl, "_blank", "noopener,noreferrer"); // Open in new tab
     } else if (onButtonClick) {
       onButtonClick();
     }
