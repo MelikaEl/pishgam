@@ -103,13 +103,13 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen section flex flex-col md:flex-row items-center justify-between relative pt-16"
+        className="min-h-screen section flex flex-col md:flex-row items-center justify-between relative pt-20 pb-2"
       >
         <div className="w-full md:flex-1 h-[30vh] md:h-screen flex flex-col items-center justify-center p-8">
           <Image
             src="/images/home-logo.png"
             alt="Right Logo"
-            className="max-w-full max-h-full object-contain"
+            className="max-w-full max-h-full object-contain w-[90px] h-[100px] md:w-[283px] md:h-[311px]"
             width={283}
             height={311}
           />
