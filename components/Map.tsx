@@ -14,9 +14,7 @@ interface MapProps {
 
 const Map: React.FC<MapProps> = ({ latitude, longitude }) => {
   useEffect(() => {
-    // Fix for default icon issues with Next.js
-    delete L.Icon.Default.prototype._getIconUrl;
-
+// Fix for default icon issues with Next.js
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
