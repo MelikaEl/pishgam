@@ -272,6 +272,7 @@ export default function Home() {
                     : []
                 }
                 buttonText="مشاهده وبسایت"
+                redirectUrl={currentProduct.persian_website_address}
               />
             )}
         </div>
