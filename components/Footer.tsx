@@ -73,7 +73,7 @@ export default function Footer() {
               />
             </div>
             <div>
-              <p className="text-sm mb-1">ایمیل</p>
+              <p className="text-base mb-1 font-bold">ایمیل</p>
               <a
                 href={`mailto:${content.contactUs[0]?.email}`}
                 className="text-gray-900 hover:bg-gradient-to-r hover:to-custom-purple hover:from-custom-blue hover:bg-clip-text hover:text-transparent transition-colors"
@@ -94,7 +94,7 @@ export default function Footer() {
               />
             </div>
             <div>
-              <p className="text-sm mb-1">تلفن</p>
+              <p className="text-base mb-1 font-bold">تلفن</p>
               <a
                 href={`tel:${content.contactUs[0]?.persian_phone_number}`}
                 className="text-gray-900 hover:bg-gradient-to-r hover:to-custom-purple hover:from-custom-blue hover:bg-clip-text hover:text-transparent transition-colors"
@@ -116,7 +116,7 @@ export default function Footer() {
               />
             </div>
             <div className="flex-1">
-              <p className="text-sm mb-1">آدرس</p>
+              <p className="text-base mb-1 font-bold">آدرس</p>
               {loading ? (
                 <p className="text-lg">در حال بارگذاری...</p>
               ) : error ? (
