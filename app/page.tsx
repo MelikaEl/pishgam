@@ -32,7 +32,9 @@ export default function Home() {
 
   // State for managing active service tab and active product index per service
   const [activeTab, setActiveTab] = useState(0);
-  const [activeProductIndices, setActiveProductIndices] = useState<number[]>([]);
+  const [activeProductIndices, setActiveProductIndices] = useState<number[]>(
+    []
+  );
 
   // Unified API fetch for all content
   useEffect(() => {
@@ -42,7 +44,9 @@ export default function Home() {
         setContent(response.data);
         // Initialize an array of zeros based on the number of service items
         if (response.data.activities) {
-          setActiveProductIndices(new Array(response.data.activities.length).fill(0));
+          setActiveProductIndices(
+            new Array(response.data.activities.length).fill(0)
+          );
         }
       } catch (err) {
         setError("خطا در دریافت اطلاعات");
@@ -85,7 +89,11 @@ export default function Home() {
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
   };
 
@@ -120,13 +128,21 @@ export default function Home() {
             </span>
           </p>
           <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap text-gray-500">
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">P</span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              P
+            </span>
             ishgam{" "}
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">P</span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              P
+            </span>
             arto{" "}
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">G</span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              G
+            </span>
             asht{" "}
-            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">V</span>
+            <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
+              V
+            </span>
             ira
           </p>
         </div>
@@ -165,27 +181,42 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen section flex items-center py-20">
+      <section
+        id="about"
+        className="min-h-screen section flex items-center py-7"
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
             <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">درباره ما</h3>
+              <h3 className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
+                درباره ما
+              </h3>
               {loading ? (
                 <p className="text-lg">در حال بارگذاری...</p>
               ) : error ? (
                 <p className="text-lg text-red-500">{error}</p>
               ) : (
-                <p className="text-lg">{content.aboutUs[0]?.persian_description}</p>
+                <p className="text-2xl">
+                  {content.aboutUs[0]?.persian_description}
+                </p>
               )}
             </div>
             <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 flex justify-center md:justify-start">ماموریت ما</h3>
-              <p className="text-lg">
-                {loading ? "در حال بارگذاری..." : error ? error : content.mission[0]?.persian_description}
+              <h3 className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
+                ماموریت ما
+              </h3>
+              <p className="text-2xl">
+                {loading
+                  ? "در حال بارگذاری..."
+                  : error
+                  ? error
+                  : content.mission[0]?.persian_description}
               </p>
             </div>
             <div className="p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 flex justify-center md:justify-start">چرا ما؟</h3>
+              <h3 className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
+                چرا ما؟
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {loading ? (
                   <p className="text-lg">در حال بارگذاری...</p>
@@ -193,7 +224,10 @@ export default function Home() {
                   <p className="text-lg text-red-500">{error}</p>
                 ) : (
                   content.whyUs.map((item: any, index: number) => (
-                    <div key={index} className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4">
+                    <div
+                      key={index}
+                      className="bg-gray-100 p-3 md:p-6 rounded-lg flex items-center gap-4"
+                    >
                       <div className="rounded-lg w-[80px] h-[80px] md:w-[109px] md:h-[109px] flex items-center justify-center aspect-square">
                         <Image
                           src={`${BASE_URL}${item.image}`}
@@ -204,8 +238,12 @@ export default function Home() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-sm md:text-xl font-bold md:mb-2">{item.persian_title}</h4>
-                        <p className="text-gray-600 text-xs md:text-base">{item.persian_description}</p>
+                        <h4 className="text-sm md:text-2xl font-bold md:mb-2">
+                          {item.persian_title}
+                        </h4>
+                        <p className="text-gray-600 text-base md:text-base">
+                          {item.persian_description}
+                        </p>
                       </div>
                     </div>
                   ))
@@ -217,9 +255,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="min-h-screen section flex items-center py-20">
+      <section
+        id="services"
+        className="min-h-screen section flex items-center py-20"
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">فعالیت ها</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">
+            فعالیت ها
+          </h2>
           {loading ? (
             <p className="text-lg">در حال بارگذاری...</p>
           ) : error ? (
@@ -233,7 +276,11 @@ export default function Home() {
             >
               <TabsList className="w-full justify-start mb-8 p-7 px-0">
                 {content.activities.map((service, index) => (
-                  <TabsTrigger key={index} value={index.toString()} className="flex-1 p-4">
+                  <TabsTrigger
+                    key={index}
+                    value={index.toString()}
+                    className="flex-1 p-4"
+                  >
                     {service.persian_name}
                   </TabsTrigger>
                 ))}
@@ -242,7 +289,9 @@ export default function Home() {
                 <TabsContent key={index} value={index.toString()}>
                   {service.products && service.products.length > 0 ? (
                     <Carousel
-                      images={service.products.map((product: any) => product.image)}
+                      images={service.products.map(
+                        (product: any) => product.image
+                      )}
                       onChange={(i: number) => {
                         const newIndices = [...activeProductIndices];
                         newIndices[index] = i;
@@ -268,7 +317,9 @@ export default function Home() {
                 description={currentProduct.persian_description}
                 bulletPoints={
                   currentProduct.features && currentProduct.features.length > 0
-                    ? currentProduct.features.map((feat: any) => feat.persian_description)
+                    ? currentProduct.features.map(
+                        (feat: any) => feat.persian_description
+                      )
                     : []
                 }
                 buttonText="مشاهده وبسایت"
