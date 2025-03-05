@@ -278,7 +278,7 @@ export default function Home() {
               className="w-full"
               dir="rtl"
             >
-              <TabsList className="w-full justify-start mb-0 p-7 px-0">
+              <TabsList className="w-full justify-start mb-0 md:mb-2 p-7 px-0">
                 {content.activities.map((service, index) => (
                   <TabsTrigger
                     key={index}
