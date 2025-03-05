@@ -186,7 +186,7 @@ export default function Home() {
         className="min-h-screen section flex items-center py-7"
       >
         <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-0">
             <div className="p-8">
               <div className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
                 درباره ما
@@ -196,7 +196,7 @@ export default function Home() {
               ) : error ? (
                 <p className="text-lg text-red-500">{error}</p>
               ) : (
-                <p className="text-2xl">
+                <p className="text-base md:text-2xl">
                   {content.aboutUs[0]?.persian_description}
                 </p>
               )}
@@ -206,11 +206,15 @@ export default function Home() {
                 ماموریت ما
               </div>
               <p className="text-2xl">
-                {loading
-                  ? "در حال بارگذاری..."
-                  : error
-                  ? error
-                  : content.mission[0]?.persian_description}
+              {loading ? (
+                <p className="text-lg">در حال بارگذاری...</p>
+              ) : error ? (
+                <p className="text-lg text-red-500">{error}</p>
+              ) : (
+                <p className="text-base md:text-2xl">
+                  {content.mission[0]?.persian_description}
+                </p>
+              )}
               </p>
             </div>
             <div className="p-8">
@@ -238,10 +242,10 @@ export default function Home() {
                         />
                       </div>
                       <div>
-                        <div className="text-sm md:text-2xl font-bold md:mb-2">
+                        <div className="text-base md:text-2xl font-bold md:mb-2">
                           {item.persian_title}
                         </div>
-                        <p className="text-gray-600 text-base md:text-base">
+                        <p className="text-gray-600 text-xs md:text-base">
                           {item.persian_description}
                         </p>
                       </div>
