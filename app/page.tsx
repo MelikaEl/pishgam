@@ -121,12 +121,12 @@ export default function Home() {
             width={283}
             height={311}
           />
-          <p className="font-bold text-xl md:text-4xl p-4 text-center whitespace-nowrap">
+          <h3 className="font-bold text-xl md:text-4xl p-4 text-center whitespace-nowrap">
             پیشگام پرتو گشت{" "}
             <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
               ویرا
             </span>
-          </p>
+          </h3>
           <p className="font-bold text-lg md:text-3xl text-center whitespace-nowrap text-gray-500">
             <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
               P
@@ -188,9 +188,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-0">
             <div className="p-8">
-              <div className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
+              <h3 className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
                 درباره ما
-              </div>
+              </h3>
               {loading ? (
                 <p className="text-lg">در حال بارگذاری...</p>
               ) : error ? (
@@ -202,25 +202,21 @@ export default function Home() {
               )}
             </div>
             <div className="p-8">
-              <div className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
+              <h3 className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
                 ماموریت ما
-              </div>
-              <p className="text-2xl">
-              {loading ? (
-                <p className="text-lg">در حال بارگذاری...</p>
-              ) : error ? (
-                <p className="text-lg text-red-500">{error}</p>
-              ) : (
-                <p className="text-base md:text-2xl">
-                  {content.mission[0]?.persian_description}
-                </p>
-              )}
+              </h3>
+              <p className="text-base md:text-2xl">
+              {loading
+                  ? "در حال بارگذاری..."
+                  : error
+                  ? error
+                  : content.mission[0]?.persian_description}
               </p>
             </div>
             <div className="p-8">
-              <div className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
+              <h3 className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
                 چرا ما؟
-              </div>
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {loading ? (
                   <p className="text-lg">در حال بارگذاری...</p>
@@ -242,9 +238,9 @@ export default function Home() {
                         />
                       </div>
                       <div>
-                        <div className="text-base md:text-2xl font-bold md:mb-2">
+                        <h4 className="text-base md:text-2xl font-bold md:mb-2">
                           {item.persian_title}
-                        </div>
+                        </h4>
                         <p className="text-gray-600 text-xs md:text-base">
                           {item.persian_description}
                         </p>
@@ -264,9 +260,9 @@ export default function Home() {
         className="min-h-screen section flex items-center py-20"
       >
         <div className="container mx-auto px-4">
-          <div className="text-2xl md:text-4xl font-extrabold mb-4 md:mb-8 flex justify-center md:justify-start">
+          <h3 className="text-2xl md:text-4xl font-extrabold mb-4 md:mb-8 flex justify-center md:justify-start">
             فعالیت ها
-          </div>
+          </h3>
           {loading ? (
             <p className="text-lg">در حال بارگذاری...</p>
           ) : error ? (
