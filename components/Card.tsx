@@ -51,7 +51,7 @@ const Card: React.FC<CardProps> = ({
       </div>
 
       {/* Button */}
-      <div className="mt-6 flex justify-end">
+      <div className="mt-2 flex justify-end">
         <Button 
           className="bg-gradient-to-r from-custom-purple to-custom-blue text-white text-xs md:text-xl font-bold  md:p-7"
           onClick={handleButtonClick}
