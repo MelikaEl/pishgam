@@ -260,7 +260,7 @@ export default function Home() {
         className="min-h-screen section flex items-center py-20"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 flex justify-center md:justify-start">
+          <h2 className="text-2xl md:text-4xl font-extrabold mb-12 flex justify-center md:justify-start">
             فعالیت ها
           </h2>
           {loading ? (
@@ -279,7 +279,7 @@ export default function Home() {
                   <TabsTrigger
                     key={index}
                     value={index.toString()}
-                    className="flex-1 p-4"
+                    className="flex-1 p-4 md:text-xl font-bold"
                   >
                     {service.persian_name}
                   </TabsTrigger>
