@@ -47,15 +47,15 @@ export default function Footer() {
 
   return (
     <div id="footer" className="container mx-auto px-4 py-12 section" dir="rtl">
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 flex justify-center md:justify-start">
+      <div className="text-2xl md:text-4xl font-black mb-6 flex justify-center md:justify-start">
         تماس با ما
-      </h2>
+      </div>
       {loading ? (
         <p className="text-lg">در حال بارگذاری...</p>
       ) : error ? (
         <p className="text-lg text-red-500">{error}</p>
       ) : (
-        <p className="mb-8 text-lg">
+        <p className="mb-8 text-2xl">
           {content.contactUs[0]?.persian_description}
         </p>
       )}
