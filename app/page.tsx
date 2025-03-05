@@ -117,7 +117,7 @@ export default function Home() {
           <Image
             src="/images/home-logo.png"
             alt="Right Logo"
-            className="max-w-full max-h-full object-contain"
+            className="max-w-full max-h-full object-contain w-[120px] h-[130px] md:w-[283px] md:h-[311px]"
             width={283}
             height={311}
           />
