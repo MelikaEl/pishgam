@@ -260,7 +260,7 @@ export default function Home() {
         className="min-h-screen section flex items-center py-20"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold mb-12 flex justify-center md:justify-start">
+          <h2 className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
             فعالیت ها
           </h2>
           {loading ? (
@@ -274,7 +274,7 @@ export default function Home() {
               className="w-full"
               dir="rtl"
             >
-              <TabsList className="w-full justify-start mb-8 p-7 px-0">
+              <TabsList className="w-full justify-start mb-5 p-7 px-0">
                 {content.activities.map((service, index) => (
                   <TabsTrigger
                     key={index}
