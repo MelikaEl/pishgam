@@ -188,9 +188,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
             <div className="p-8">
-              <h3 className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
+              <div className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
                 درباره ما
-              </h3>
+              </div>
               {loading ? (
                 <p className="text-lg">در حال بارگذاری...</p>
               ) : error ? (
@@ -202,9 +202,9 @@ export default function Home() {
               )}
             </div>
             <div className="p-8">
-              <h3 className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
+              <div className="text-2xl md:text-4xl font-extrabold mb-4 flex justify-center md:justify-start">
                 ماموریت ما
-              </h3>
+              </div>
               <p className="text-2xl">
                 {loading
                   ? "در حال بارگذاری..."
@@ -214,9 +214,9 @@ export default function Home() {
               </p>
             </div>
             <div className="p-8">
-              <h3 className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
+              <div className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
                 چرا ما؟
-              </h3>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {loading ? (
                   <p className="text-lg">در حال بارگذاری...</p>
@@ -238,9 +238,9 @@ export default function Home() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-sm md:text-2xl font-bold md:mb-2">
+                        <div className="text-sm md:text-2xl font-bold md:mb-2">
                           {item.persian_title}
-                        </h4>
+                        </div>
                         <p className="text-gray-600 text-base md:text-base">
                           {item.persian_description}
                         </p>
@@ -260,9 +260,9 @@ export default function Home() {
         className="min-h-screen section flex items-center py-20"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
+          <div className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
             فعالیت ها
-          </h2>
+          </div>
           {loading ? (
             <p className="text-lg">در حال بارگذاری...</p>
           ) : error ? (
