@@ -264,7 +264,7 @@ export default function Home() {
         className="min-h-screen section flex items-center py-20"
       >
         <div className="container mx-auto px-4">
-          <div className="text-2xl md:text-4xl font-extrabold mb-8 flex justify-center md:justify-start">
+          <div className="text-2xl md:text-4xl font-extrabold mb-4 md:mb-8 flex justify-center md:justify-start">
             فعالیت ها
           </div>
           {loading ? (
@@ -278,12 +278,12 @@ export default function Home() {
               className="w-full"
               dir="rtl"
             >
-              <TabsList className="w-full justify-start mb-5 p-7 px-0">
+              <TabsList className="w-full justify-start mb-0 md:mb-5 p-3 md:p-7 px-0">
                 {content.activities.map((service, index) => (
                   <TabsTrigger
                     key={index}
                     value={index.toString()}
-                    className="flex-1 p-4 md:text-xl font-bold"
+                    className="flex-1 p-3 md:p-7 md:text-xl font-bold "
                   >
                     {service.persian_name}
                   </TabsTrigger>

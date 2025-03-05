@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto m-10 mt-2 ">
+    <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto m-10 mt-0 md:mt-2 ">
       {/* Header */}
       <div className="text-lg md:text-3xl font-black mb-4 text-center bg-custom-gray rounded p-3">
         <span className="bg-gradient-to-r from-custom-purple to-custom-blue bg-clip-text text-transparent">
